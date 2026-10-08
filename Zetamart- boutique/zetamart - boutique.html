@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zetamart - Boutique — #1 Boutique Management & Custom Tailoring Software in India</title>
-  <meta name="description" content="Digitize your fashion boutique & tailoring studio with Zetamart - Boutique. Track customer measurements, master tailor orders, WhatsApp receipts & AI customer chat. Plans start at ₹399/mo.">
+  <title>Aazhi Studio — #1 Boutique Management & Custom Tailoring Software in India</title>
+  <meta name="description" content="Digitize your fashion boutique & tailoring studio with Aazhi Studio. Track customer measurements, master tailor orders, WhatsApp receipts & AI customer chat. Plans start at ₹399/mo.">
   <meta name="keywords" content="boutique management software, tailoring shop software, customer measurement app, blouse measurement software, fashion studio ERP India, tailor kanban board, WhatsApp invoice for boutique">
 
   <!-- Google Fonts -->
@@ -964,96 +964,6 @@
       margin-bottom: 48px;
     }
 
-    /* ENQUIRY SECTION */
-    .enquiry-section {
-      background: linear-gradient(135deg, rgba(30,27,75,0.5) 0%, rgba(17,24,39,0.8) 100%);
-      border-top: 1px solid var(--border-light);
-    }
-
-    .enquiry-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 48px;
-      align-items: start;
-    }
-
-    .enquiry-info h3 {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-
-    .enquiry-info p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-
-    .enquiry-benefit {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      font-size: 1rem;
-    }
-    .enquiry-benefit i {
-      color: var(--gold-primary);
-      font-size: 1.1rem;
-    }
-
-    .enquiry-form-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border-gold);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    }
-
-    .enquiry-form-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-
-    .enquiry-form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .enquiry-success {
-      display: none;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .enquiry-success.show {
-      display: block;
-      animation: fadeIn 0.5s ease;
-    }
-    .enquiry-success i {
-      font-size: 3rem;
-      color: var(--accent-emerald);
-      margin-bottom: 16px;
-    }
-    .enquiry-success h3 {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-    }
-
-    .back-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: var(--transition);
-    }
-    .back-link:hover {
-      color: var(--gold-primary);
-    }
-
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .hero-title { font-size: 2.8rem; }
@@ -1062,7 +972,6 @@
       }
       .pricing-card.popular { transform: none; }
       .nav-links { display: none; }
-      .enquiry-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -1070,7 +979,6 @@
       .hero-subtitle { font-size: 1.05rem; }
       .calc-result-cards { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
-      .enquiry-form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1079,26 +987,23 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container nav-container">
-      <div style="display: flex; align-items: center; gap: 20px;">
-        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Zetalink</a>
-        <a href="#" class="logo">
-          <div class="logo-icon"><i class="fa-solid fa-scissors"></i></div>
-          <div class="logo-text">Zetamart <span>Boutique</span></div>
-        </a>
-      </div>
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-scissors"></i></div>
+        <div class="logo-text">Aazhi <span>Studio</span></div>
+      </a>
 
       <ul class="nav-links">
-        <li><a href="#value">Why Zetamart?</a></li>
+        <li><a href="#value">Why Aazhi?</a></li>
         <li><a href="#roles">For Your Team</a></li>
         <li><a href="#calculator">ROI Calculator</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="#instagram-usp" style="color: #F472B6;"><i class="fa-brands fa-instagram"></i> Instagram Protection</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#enquiry">Enquiry</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
 
       <div class="nav-cta">
-        <a href="#enquiry" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.9rem;"><i class="fa-solid fa-envelope"></i> Enquire</a>
+        <a href="#pricing" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.9rem;">Sign In</a>
         <button onclick="openModal('Pro')" class="btn btn-gold" style="padding: 10px 22px; font-size: 0.9rem;">
           <i class="fa-solid fa-bolt"></i> Start Free Trial
         </button>
@@ -1119,7 +1024,7 @@
       </h1>
       
       <p class="hero-subtitle">
-        Zetamart - Boutique replaces paper notebooks with digital garment profiles, live master tailor task boards, automated WhatsApp trial updates & 24/7 AI customer assistants.
+        Aazhi Studio replaces paper notebooks with digital garment profiles, live master tailor Kanban boards, automated WhatsApp trial updates, 24/7 AI assistants & weekly automated Instagram backup protection.
       </p>
 
       <div class="hero-actions">
@@ -1136,11 +1041,12 @@
         <div class="hero-trust-item"><i class="fa-solid fa-check-circle"></i> WhatsApp & Instagram Auto Receipts</div>
         <div class="hero-trust-item"><i class="fa-solid fa-check-circle"></i> INR (₹) Advance & Balance Tracker</div>
         <div class="hero-trust-item"><i class="fa-solid fa-check-circle"></i> No Credit Card Required</div>
+        <div class="hero-trust-item" style="background: rgba(236,72,153,0.1); border: 1px solid rgba(236,72,153,0.25); color: #F9A8D4;"><i class="fa-solid fa-shield-heart" style="color: #EC4899;"></i> Instagram Account Auto-Backup Weekly</div>
       </div>
 
       <!-- HERO MOCKUP DISPLAY -->
       <div class="hero-mockup-wrapper">
-        <img src="images/hero-mockup.jpg" alt="Zetamart - Boutique Management Software Preview" class="hero-mockup-img">
+        <img src="images/hero-mockup.jpg" alt="Aazhi Studio Boutique Management Software Preview" class="hero-mockup-img">
       </div>
     </div>
   </section>
@@ -1150,8 +1056,8 @@
     <div class="container">
       <div style="text-align: center; max-width: 700px; margin: 0 auto;">
         <div class="badge badge-purple"><i class="fa-solid fa-shield-halved"></i> Real Value to Your Business</div>
-        <h2 style="font-size: 2.5rem; margin-top: 16px;">Notebook Register Chaos vs <span class="gradient-text">Zetamart Digital Clarity</span></h2>
-        <p style="color: var(--text-muted); margin-top: 12px;">See why 500+ designer studios switched from physical notebooks to Zetamart - Boutique.</p>
+        <h2 style="font-size: 2.5rem; margin-top: 16px;">Notebook Register Chaos vs <span class="gradient-text">Aazhi Digital Clarity</span></h2>
+        <p style="color: var(--text-muted); margin-top: 12px;">See why 500+ designer studios switched from physical notebooks to Aazhi Studio.</p>
       </div>
 
       <div class="comparison-grid">
@@ -1167,13 +1073,14 @@
             <li><i class="fa-solid fa-circle-xmark icon-fail"></i> Customers call repeatedly asking "Is my blouse ready for trial?".</li>
             <li><i class="fa-solid fa-circle-xmark icon-fail"></i> Forgotten pending balance payments eat into your monthly profits.</li>
             <li><i class="fa-solid fa-circle-xmark icon-fail"></i> Missed trial dates ruin customer trust & bridal orders.</li>
+            <li><i class="fa-solid fa-circle-xmark icon-fail"></i> Hacked or suspended Instagram deletes years of portfolio photos & DM leads forever.</li>
           </ul>
         </div>
 
-        <!-- NEW WAY (ZETAMART) -->
+        <!-- NEW WAY (AAZHI) -->
         <div class="comparison-card card-new-way">
           <div class="badge badge-emerald">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> The Zetamart Way (Digital Studio ERP)
+            <i class="fa-solid fa-wand-magic-sparkles"></i> The Aazhi Way (Digital Studio ERP)
           </div>
           <h3 style="margin-top: 16px; font-size: 1.5rem; color: #6EE7B7;">Smooth Operations & 3x Growth</h3>
           <ul class="comparison-list">
@@ -1182,6 +1089,7 @@
             <li><i class="fa-solid fa-circle-check icon-success"></i> Automated WhatsApp SMS & receipts sent directly to customers.</li>
             <li><i class="fa-solid fa-circle-check icon-success"></i> Decimal-safe 50% advance tracking & automatic payment reminders.</li>
             <li><i class="fa-solid fa-circle-check icon-success"></i> AI Assistant answers WhatsApp inquiries 24/7 even while you sleep!</li>
+            <li><i class="fa-solid fa-circle-check icon-success"></i> Automated weekly Instagram snapshots & 1-click disaster recovery protect your catalog.</li>
           </ul>
         </div>
       </div>
@@ -1193,7 +1101,7 @@
     <div class="container">
       <div style="text-align: center; max-width: 700px; margin: 0 auto;">
         <div class="badge badge-gold"><i class="fa-solid fa-users"></i> Built for Every Team Member</div>
-        <h2 style="font-size: 2.5rem; margin-top: 16px;">How Zetamart - Boutique Empowers Your Entire Studio</h2>
+        <h2 style="font-size: 2.5rem; margin-top: 16px;">How Aazhi Empowers Your Entire Studio</h2>
       </div>
 
       <div class="role-tabs">
@@ -1223,6 +1131,13 @@
               <div>
                 <h4 style="font-size: 1.1rem;">Granular Role-Based Access</h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">Protect your business data. Tailors see only stitching tasks, sales staff manage orders, owner views revenue.</p>
+              </div>
+            </div>
+            <div class="role-feature-item">
+              <div class="role-icon-box" style="color: #EC4899; background: rgba(236,72,153,0.15);"><i class="fa-brands fa-instagram"></i></div>
+              <div>
+                <h4 style="font-size: 1.1rem;">Automated Instagram Portfolio Insurance</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Weekly automatic cloud backup of all your design posts, captions, reels, stories & metrics with 1-click restore.</p>
               </div>
             </div>
           </div>
@@ -1343,7 +1258,7 @@
           </div>
         </div>
         <div>
-          <img src="images/ai-assistant.jpg" alt="Zetamart AI WhatsApp Assistant Preview" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
+          <img src="images/ai-assistant.jpg" alt="Aazhi AI WhatsApp Assistant Preview" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
         </div>
       </div>
     </div>
@@ -1355,7 +1270,7 @@
       <div style="text-align: center; max-width: 700px; margin: 0 auto;">
         <div class="badge badge-gold"><i class="fa-solid fa-calculator"></i> Business ROI Calculator</div>
         <h2 style="font-size: 2.5rem; margin-top: 16px;">How Much Money & Time Will You Save?</h2>
-        <p style="color: var(--text-muted); margin-top: 12px;">Drag the slider to see your studio's estimated monthly savings with Zetamart - Boutique.</p>
+        <p style="color: var(--text-muted); margin-top: 12px;">Drag the slider to see your studio's estimated monthly savings with Aazhi Studio.</p>
       </div>
 
       <div class="calculator-box">
@@ -1447,6 +1362,90 @@
           <div class="feature-icon-wrapper"><i class="fa-solid fa-building"></i></div>
           <h3>Multi-Branch Studio Support</h3>
           <p>Manage multiple boutique branches or workshops from a single studio master account with isolated numbering & sequence codes.</p>
+        </div>
+
+        <div class="glass-card feature-card" style="border: 1px solid rgba(236,72,153,0.35); background: linear-gradient(135deg, rgba(236,72,153,0.1) 0%, rgba(17,24,39,0.9) 100%);">
+          <div class="feature-icon-wrapper" style="background: rgba(236,72,153,0.2); color: #EC4899;"><i class="fa-brands fa-instagram"></i></div>
+          <div class="badge badge-purple" style="font-size: 0.75rem; margin-bottom: 8px; width: fit-content; background: rgba(236,72,153,0.15); color: #F9A8D4; border-color: rgba(236,72,153,0.3);"><i class="fa-solid fa-shield-heart"></i> Exclusive USP</div>
+          <h3>Weekly Instagram Backup & 1-Click Restore</h3>
+          <p>Protect your boutique's most valuable asset. Automated weekly snapshots save your full post portfolio, captions, media links, bio, and metrics to prevent catastrophic data loss if hacked or deleted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEDICATED USP SPOTLIGHT: INSTAGRAM BACKUP & RECOVERY -->
+  <section id="instagram-usp" style="position: relative; padding: 100px 0; background: radial-gradient(circle at 50% 30%, rgba(236, 72, 153, 0.08) 0%, rgba(9, 13, 22, 0.98) 100%); border-top: 1px solid rgba(236, 72, 153, 0.2); border-bottom: 1px solid rgba(236, 72, 153, 0.2);">
+    <div class="container">
+      <div style="text-align: center; max-width: 780px; margin: 0 auto 50px;">
+        <div class="badge" style="background: rgba(236,72,153,0.15); color: #F472B6; border: 1px solid rgba(236,72,153,0.3); padding: 8px 18px; font-size: 0.9rem;">
+          <i class="fa-solid fa-shield-heart" style="color: #EC4899;"></i> Breakthrough Boutique Safety USP
+        </div>
+        <h2 style="font-size: 2.8rem; margin-top: 18px; line-height: 1.2;">
+          Never Lose Your Design Portfolio. <br>
+          <span style="background: linear-gradient(135deg, #F472B6 0%, #EC4899 50%, #FB7185 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Weekly Instagram Backup & 1-Click Restore.
+          </span>
+        </h2>
+        <p style="color: var(--text-muted); margin-top: 16px; font-size: 1.1rem; line-height: 1.7;">
+          Instagram is the lifeblood of Indian designer studios. If your account gets hacked, locked, or accidentally deleted, you lose years of customer trust and catalog photos. Aazhi Studio backs up your entire Instagram profile automatically every week with instant 1-click disaster recovery.
+        </p>
+      </div>
+
+      <!-- 3 USP PILLARS -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px;">
+        <div class="glass-card" style="border: 1px solid rgba(236,72,153,0.25); background: rgba(17,24,39,0.85); padding: 32px; border-radius: var(--radius-lg);">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(236,72,153,0.15); color: #EC4899; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px;">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 12px; color: #FFF;">Automated Weekly Cron</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            Runs every Sunday at midnight (00:00 UTC) automatically. Captures high-res photos, captions, hashtags, stories, bio, and engagement metrics without manual effort.
+          </p>
+        </div>
+
+        <div class="glass-card" style="border: 1px solid rgba(139,92,246,0.25); background: rgba(17,24,39,0.85); padding: 32px; border-radius: var(--radius-lg);">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(139,92,246,0.15); color: #A78BFA; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 12px; color: #FFF;">1-Click Disaster Recovery</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            Account got compromised or restricted? Restore your entire catalog back to Instagram or download a complete encrypted JSON/ZIP archive in seconds.
+          </p>
+        </div>
+
+        <div class="glass-card" style="border: 1px solid rgba(16,185,129,0.25); background: rgba(17,24,39,0.85); padding: 32px; border-radius: var(--radius-lg);">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(16,185,129,0.15); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px;">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 12px; color: #FFF;">100% Private & Encrypted</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            Your customer data and Instagram media never leave your dedicated private database. Bank-grade token hashing ensures zero third-party access.
+          </p>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE SIMULATION CARD -->
+      <div class="glass-card" style="border: 1px solid rgba(236,72,153,0.3); background: linear-gradient(135deg, rgba(236,72,153,0.08) 0%, rgba(17,24,39,0.95) 100%); padding: 36px; border-radius: var(--radius-lg); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #10B981; display: inline-block; box-shadow: 0 0 10px #10B981;"></span>
+            <span style="color: #6EE7B7; font-weight: 600; font-size: 0.9rem;">Auto-Backup Active & Protected</span>
+            <span class="badge" style="background: rgba(236,72,153,0.15); color: #F472B6; font-size: 0.75rem;">Next: Sunday 00:00 UTC</span>
+          </div>
+          <h3 style="font-size: 1.5rem; color: #FFF;">Your Boutique Instagram Safety Shield</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 6px;">
+            Included with <strong>Pro & Premium</strong> plans — never lose a single bridal design or reel caption.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <button onclick="openModal('Pro')" class="btn" style="background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%); color: #FFF; padding: 14px 28px; font-size: 0.95rem; box-shadow: 0 8px 24px rgba(236,72,153,0.3);">
+            <i class="fa-brands fa-instagram"></i> Try Instagram Backup Free
+          </button>
+          <a href="#features" class="btn btn-outline" style="padding: 14px 24px; font-size: 0.95rem;">
+            <i class="fa-solid fa-list-check"></i> Explore All Features
+          </a>
         </div>
       </div>
     </div>
@@ -1562,6 +1561,7 @@
               <li><i class="fa-solid fa-circle-check"></i> 24/7 Order Status AI Auto-Reply</li>
               <li><i class="fa-solid fa-circle-check"></i> Priority VIP Phone & WhatsApp Support</li>
               <li><i class="fa-solid fa-circle-check"></i> 1-on-1 Studio Onboarding & Training</li>
+              <li class="highlight-feature" style="color: #F9A8D4; background: rgba(236,72,153,0.08); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(236,72,153,0.2); margin-top: 4px;"><i class="fa-brands fa-instagram"></i> <strong>Weekly Instagram Account Backup & Recovery</strong> &nbsp;🛡️</li>
             </ul>
           </div>
 
@@ -1628,6 +1628,12 @@
                 <td>₹0</td>
                 <td><strong style="color: var(--gold-primary);">₹2,000 / month</strong></td>
               </tr>
+              <tr style="background: rgba(236,72,153,0.06);">
+                <td><strong style="color: #F9A8D4;"><i class="fa-brands fa-instagram" style="margin-right: 6px;"></i>Instagram Backup & Recovery</strong></td>
+                <td><i class="fa-solid fa-xmark times"></i></td>
+                <td><i class="fa-solid fa-xmark times"></i></td>
+                <td><i class="fa-solid fa-check check"></i> <strong style="color: #F9A8D4;">Auto Weekly</strong></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -1649,7 +1655,7 @@
             <div class="stars">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-            <p class="testimonial-quote">"Before Zetamart Boutique, we lost 2 measurement registers during peak wedding season. Now every blouse measurement is safely saved on mobile. Our trial delays dropped to zero!"</p>
+            <p class="testimonial-quote">"Before Aazhi, we lost 2 measurement registers during peak wedding season. Now every blouse measurement is safely saved on mobile. Our trial delays dropped to zero!"</p>
           </div>
           <div class="testimonial-user">
             <div class="user-avatar">AP</div>
@@ -1716,11 +1722,21 @@
 
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>Can my Master Tailors use Zetamart - Boutique easily on mobile phones?</span>
+            <span>How does the Automated Instagram Weekly Backup & Recovery work?</span>
             <i class="fa-solid fa-chevron-down faq-icon"></i>
           </div>
           <div class="faq-answer">
-            Yes! Zetamart - Boutique is 100% mobile responsive. Your master tailors can open the visual Kanban board on any Android phone, iPhone, or tablet to view cutting/stitching instructions and upload fabric photos.
+            Instagram is the #1 sales engine for boutiques. If your account gets compromised, restricted, or deleted, our automated weekly scheduler captures a full snapshot of your posts, media links, captions, bio, and engagement metrics directly to your private database. You can restore or export your entire catalog in just 1 click anytime!
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Can my Master Tailors use Aazhi easily on mobile phones?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            Yes! Aazhi Studio is 100% mobile responsive. Your master tailors can open the visual Kanban board on any Android phone, iPhone, or tablet to view cutting/stitching instructions and upload fabric photos.
           </div>
         </div>
 
@@ -1747,92 +1763,6 @@
     </div>
   </section>
 
-  <!-- ENQUIRY SECTION -->
-  <section id="enquiry" class="enquiry-section" style="padding: 100px 0;">
-    <div class="container">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
-        <div class="badge badge-gold"><i class="fa-solid fa-envelope"></i> Enquire About Zetamart - Boutique</div>
-        <h2 style="font-size: 2.5rem; margin-top: 16px;">Interested in Zetamart - Boutique? Let's Talk!</h2>
-        <p style="color: var(--text-muted); margin-top: 12px;">Fill out the form below and our team will get back to you within 24 hours with a personalized demo and pricing.</p>
-      </div>
-
-      <div class="enquiry-grid">
-        <div class="enquiry-info">
-          <h3>Why Boutique Owners <span class="gradient-text">Love Zetamart Boutique</span></h3>
-          <p>Join 500+ Indian fashion studios that have already made the switch from paper notebooks to digital operations.</p>
-          
-          <div class="enquiry-benefit"><i class="fa-solid fa-check-circle"></i> 14-day completely free trial — no credit card</div>
-          <div class="enquiry-benefit"><i class="fa-solid fa-check-circle"></i> Plans starting at just ₹399/month</div>
-          <div class="enquiry-benefit"><i class="fa-solid fa-check-circle"></i> Free onboarding and setup assistance</div>
-          <div class="enquiry-benefit"><i class="fa-solid fa-check-circle"></i> WhatsApp & phone support included</div>
-          <div class="enquiry-benefit"><i class="fa-solid fa-check-circle"></i> AI-powered customer chat assistant</div>
-          <div class="enquiry-benefit"><i class="fa-solid fa-check-circle"></i> Cancel anytime, zero lock-in</div>
-        </div>
-
-        <div class="enquiry-form-card" id="boutique-enquiry-wrapper">
-          <h3><i class="fa-solid fa-scissors" style="color: var(--gold-primary);"></i> Boutique Enquiry Form</h3>
-          <form action="https://api.web3forms.com/submit" method="POST" id="boutique-enquiry-form">
-            <input type="hidden" name="access_key" value="dd8cd5cb-15db-463c-9101-8b2bfb972c20">
-            <input type="hidden" name="subject" value="New Boutique Enquiry - Zetamart - Boutique">
-            <input type="hidden" name="from_name" value="Zetamart Boutique Enquiry Form">
-            
-            <div class="enquiry-form-row">
-              <div class="form-group">
-                <label>Your Name *</label>
-                <input type="text" name="name" class="form-control" placeholder="e.g. Ananya Sharma" required>
-              </div>
-              <div class="form-group">
-                <label>Boutique / Studio Name *</label>
-                <input type="text" name="boutique_name" class="form-control" placeholder="e.g. Zari Designer Studio" required>
-              </div>
-            </div>
-
-            <div class="enquiry-form-row">
-              <div class="form-group">
-                <label>Email Address *</label>
-                <input type="email" name="email" class="form-control" placeholder="you@studio.com" required>
-              </div>
-              <div class="form-group">
-                <label>WhatsApp / Phone Number *</label>
-                <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
-              </div>
-            </div>
-
-            <div class="enquiry-form-row">
-              <div class="form-group">
-                <label>City / Location</label>
-                <input type="text" name="city" class="form-control" placeholder="e.g. Chennai">
-              </div>
-              <div class="form-group">
-                <label>Interested Plan</label>
-                <select name="plan" class="form-control">
-                  <option value="Basic (₹399/mo)">Basic Plan (₹399/mo)</option>
-                  <option value="Premium (₹699/mo)" selected>Premium Plan (₹699/mo) — Popular</option>
-                  <option value="Pro AI (₹1,299/mo)">Pro Plan (₹1,299/mo) — AI Included</option>
-                  <option value="Not sure yet">Not sure yet — need guidance</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Additional Details</label>
-              <textarea name="message" class="form-control" rows="4" placeholder="Tell us about your boutique — how many staff, orders per month, etc."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px; font-size: 1.05rem;">
-              <i class="fa-solid fa-paper-plane"></i> Submit Enquiry
-            </button>
-          </form>
-          <div class="enquiry-success" id="boutique-enquiry-success">
-            <i class="fa-solid fa-circle-check"></i>
-            <h3>Enquiry Submitted Successfully!</h3>
-            <p style="color: var(--text-muted);">Thank you for your interest in Zetamart - Boutique. Our team will contact you within 24 hours.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FINAL CTA -->
   <section style="padding: 120px 0; text-align: center; position: relative; overflow: hidden;">
     <div class="container" style="position: relative; z-index: 2;">
@@ -1843,10 +1773,10 @@
         </p>
 
         <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-          <a href="#enquiry" class="btn btn-gold" style="font-size: 1.15rem; padding: 18px 40px;">
-            <i class="fa-solid fa-envelope"></i> Enquire Now
-          </a>
-          <a href="https://wa.me/919629923095?text=Hi%20Zetamart%20Boutique%2C%20I%20want%20a%20live%20demo%20for%20my%20boutique" target="_blank" class="btn btn-outline" style="font-size: 1.15rem; padding: 18px 36px;">
+          <button onclick="openModal('Premium')" class="btn btn-gold" style="font-size: 1.15rem; padding: 18px 40px;">
+            <i class="fa-solid fa-rocket"></i> Start Free Trial Now
+          </button>
+          <a href="https://wa.me/919876543210?text=Hi%20Aazhi%20Studio%2C%20I%20want%20a%20live%20demo%20for%20my%20boutique" target="_blank" class="btn btn-outline" style="font-size: 1.15rem; padding: 18px 36px;">
             <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> WhatsApp Us Directly
           </a>
         </div>
@@ -1861,7 +1791,7 @@
         <div>
           <a href="#" class="logo" style="margin-bottom: 16px;">
             <div class="logo-icon"><i class="fa-solid fa-scissors"></i></div>
-            <div class="logo-text">Zetamart <span>Boutique</span></div>
+            <div class="logo-text">Aazhi <span>Studio</span></div>
           </a>
           <p style="font-size: 0.95rem; line-height: 1.6;">
             The complete business operating system for fashion designer studios, custom tailoring shops & bridal wear boutiques in India.
@@ -1890,13 +1820,13 @@
         <div>
           <h4 style="color: #FFF; margin-bottom: 16px;">Contact</h4>
           <p style="font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-phone" style="color: var(--gold-primary);"></i> +91 98765 43210</p>
-          <p style="font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-envelope" style="color: var(--gold-primary);"></i> dhineshrajam@gmail.com</p>
+          <p style="font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-solid fa-envelope" style="color: var(--gold-primary);"></i> support@aazhi.studio</p>
           <p style="font-size: 0.9rem;"><i class="fa-solid fa-location-dot" style="color: var(--gold-primary);"></i> Bengaluru & Chennai, India</p>
         </div>
       </div>
 
       <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; text-align: center; font-size: 0.85rem;">
-        © 2026 Zetamart - Boutique. A Zetalink Technologies Product. All rights reserved. Crafted with ❤️ for Indian Fashion & Tailoring Business Teams.
+        © 2026 Aazhi Studio ERP. All rights reserved. Crafted with ❤️ for Indian Fashion & Tailoring Business Teams.
       </div>
     </div>
   </footer>
@@ -1908,7 +1838,7 @@
       
       <div style="text-align: center; margin-bottom: 24px;">
         <div class="badge badge-gold"><i class="fa-solid fa-bolt"></i> 14-Day Free Trial</div>
-        <h3 style="font-size: 1.8rem; margin-top: 10px;">Start Using Zetamart - Boutique</h3>
+        <h3 style="font-size: 1.8rem; margin-top: 10px;">Start Using Aazhi Studio</h3>
         <p style="color: var(--text-muted); font-size: 0.95rem;" id="modal-plan-text">Selected Plan: Premium (₹699/mo)</p>
       </div>
 
@@ -2026,40 +1956,8 @@
 
     function handleModalSubmit(event) {
       event.preventDefault();
-      alert("🎉 Congratulations! Your 14-Day Free Trial for Zetamart - Boutique has been created.\n\nOur onboarding team will contact you on WhatsApp shortly!");
+      alert("🎉 Congratulations! Your 14-Day Free Trial for Aazhi Studio has been created.\n\nOur onboarding team will contact you on WhatsApp shortly!");
       closeModal();
-    }
-
-    // Enquiry form submission
-    const boutiqueEnquiryForm = document.getElementById('boutique-enquiry-form');
-    if (boutiqueEnquiryForm) {
-      boutiqueEnquiryForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const formData = new FormData(boutiqueEnquiryForm);
-        const btn = boutiqueEnquiryForm.querySelector('button[type="submit"]');
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-        btn.disabled = true;
-
-        try {
-          const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-          });
-          const data = await response.json();
-          if (data.success) {
-            boutiqueEnquiryForm.style.display = 'none';
-            document.getElementById('boutique-enquiry-success').classList.add('show');
-          } else {
-            alert('Thank you! Your enquiry has been received. We will contact you shortly.');
-            boutiqueEnquiryForm.reset();
-          }
-        } catch (error) {
-          alert('Thank you! Your enquiry has been received. We will contact you shortly.');
-          boutiqueEnquiryForm.reset();
-        }
-        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit Enquiry';
-        btn.disabled = false;
-      });
     }
 
     // Initialize calculator on load
