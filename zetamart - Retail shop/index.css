@@ -48,6 +48,10 @@ body {
   background: radial-gradient(circle at top left, #0e1227 0%, var(--bg-main) 60%);
 }
 
+section[id], div[id] {
+  scroll-margin-top: 90px;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;

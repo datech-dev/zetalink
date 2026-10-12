@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css?v=2.2">
 </head>
 <body>
 
@@ -49,7 +49,7 @@
           Supercharge your business with lightning-fast POS billing, automated batch-tracking (FIFO), and granular security control. Designed to scale from single stores to enterprise retail chains.
         </p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Start Free Trial</a>
+          <a href="#contact" class="btn btn-primary" onclick="selectPlanAndScroll('Starter'); return false;">Start Free Trial</a>
           <a href="#calculator" class="btn btn-secondary">Calculate Savings</a>
         </div>
         <div class="hero-stats">
@@ -245,7 +245,7 @@
             <li>Basic Inventory Summary</li>
             <li>Email Support</li>
           </ul>
-          <a href="#enquiry" class="btn btn-outline">Choose Starter</a>
+          <a href="#contact" class="btn btn-outline" onclick="selectPlanAndScroll('Starter'); return false;">Choose Starter</a>
         </div>
         <!-- Plan 2 (Highlighted) -->
         <div class="pricing-card highlighted">
@@ -267,7 +267,7 @@
             <li>Excel Exports & Reports</li>
             <li>Priority 24/7 Support</li>
           </ul>
-          <a href="#enquiry" class="btn btn-primary">Get Growth</a>
+          <a href="#contact" class="btn btn-primary" onclick="selectPlanAndScroll('Growth'); return false;">Get Growth</a>
         </div>
         <!-- Plan 3 -->
         <div class="pricing-card">
@@ -285,15 +285,15 @@
             <li>Dedicated Account Manager</li>
             <li>Custom SLA</li>
           </ul>
-          <a href="#enquiry" class="btn btn-outline">Contact Sales</a>
+          <a href="#contact" class="btn btn-outline" onclick="selectPlanAndScroll('Enterprise'); return false;">Contact Sales</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Enquiry Section -->
-  <section id="enquiry" class="contact-section">
-    <div id="contact"></div>
+  <section id="contact" class="contact-section">
+    <div id="enquiry"></div>
     <div class="container contact-grid">
       <div class="contact-info">
         <h2>Interested in Zetamart POS?</h2>
@@ -460,6 +460,59 @@
         btn.disabled = false;
       });
     }
+
+    // Plan Selection and Smooth Scroll logic
+    function selectPlanAndScroll(planName) {
+      // 1. Auto-select plan in dropdown
+      const planSelect = document.getElementById('retail-plan');
+      if (planSelect && planName) {
+        for (let i = 0; i < planSelect.options.length; i++) {
+          if (planSelect.options[i].text.toLowerCase().includes(planName.toLowerCase()) || 
+              planSelect.options[i].value.toLowerCase().includes(planName.toLowerCase())) {
+            planSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      // 2. Smoothly scroll to the contact/enquiry section
+      const target = document.getElementById('contact') || document.getElementById('enquiry');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Highlight form card
+        const formWrapper = document.querySelector('.contact-form-wrapper');
+        if (formWrapper) {
+          formWrapper.style.transition = 'box-shadow 0.4s ease, border-color 0.4s ease, transform 0.4s ease';
+          formWrapper.style.boxShadow = '0 0 35px rgba(16, 185, 129, 0.45)';
+          formWrapper.style.borderColor = 'rgba(16, 185, 129, 0.6)';
+          formWrapper.style.transform = 'scale(1.01)';
+          setTimeout(() => {
+            formWrapper.style.boxShadow = '';
+            formWrapper.style.borderColor = '';
+            formWrapper.style.transform = '';
+          }, 1500);
+        }
+
+        // Focus Full Name field
+        setTimeout(() => {
+          const nameInput = document.getElementById('retail-name');
+          if (nameInput) nameInput.focus();
+        }, 500);
+      }
+    }
+
+    // Auto-scroll if page is loaded with #contact or #enquiry
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash === '#contact' || window.location.hash === '#enquiry') {
+        const target = document.getElementById('contact') || document.getElementById('enquiry');
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 200);
+        }
+      }
+    });
 
     // Initialize calculator
     calculateSavings();
