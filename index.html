@@ -580,10 +580,21 @@
             align-items: baseline;
             gap: 4px;
             margin-bottom: 8px;
+            flex-wrap: wrap;
         }
         .product-pricing-label {
             color: var(--text-muted);
             font-size: 0.85rem;
+        }
+        .product-pricing-original {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            text-decoration: line-through;
+            text-decoration-color: #ef4444;
+            text-decoration-thickness: 1.5px;
+            font-weight: 600;
+            margin-left: 4px;
+            margin-right: 2px;
         }
         .product-pricing-amount {
             font-family: 'Outfit', sans-serif;
@@ -593,6 +604,18 @@
         .product-pricing-period {
             color: var(--text-muted);
             font-size: 0.9rem;
+        }
+        .product-offer-badge {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            margin-left: 6px;
+            letter-spacing: 0.5px;
         }
 
         .product-actions {
@@ -1316,8 +1339,10 @@
                         </ul>
                         <div class="product-pricing">
                             <span class="product-pricing-label">Starting at</span>
-                            <span class="product-pricing-amount" style="color: var(--accent-emerald);">₹1,499</span>
+                            <span class="product-pricing-original">₹1,499</span>
+                            <span class="product-pricing-amount" style="color: var(--accent-emerald);">₹699</span>
                             <span class="product-pricing-period">/month</span>
+                            <span class="product-offer-badge">Offer</span>
                         </div>
                         <div class="product-actions">
                             <a href="zetamart - Retail shop/index.html" class="btn btn-primary">
