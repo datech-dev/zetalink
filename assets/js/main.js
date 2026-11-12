@@ -286,23 +286,23 @@
   const archReadout = document.getElementById('arch-detail-readout');
   const archLayerData = {
     '1': {
-      title: '01 / Enterprise AI & Automation:',
-      desc: 'Automates multi-step operational workflows with tool-using agents, document processing, and human approval gates.',
+      title: '01 / Automate Daily Work:',
+      desc: 'Handles repetitive invoice entry, email triage, and document checks automatically—while your team keeps final approval.',
       svgId: 'arch-layer-1',
     },
     '2': {
-      title: '02 / Data Intelligence & Analytics:',
-      desc: 'Converts operational telemetry, sales history, and visual feeds into demand forecasts, anomaly alerts, and inspection models.',
+      title: '02 / Predict & Spot Issues Early:',
+      desc: 'Turns your sales, stock, and production records into clear demand forecasts and early warnings before costly disruptions.',
       svgId: 'arch-layer-2',
     },
     '3': {
-      title: '03 / Enterprise Knowledge & GenAI:',
-      desc: 'Transforms fragmented documents and databases into citation-grounded RAG search and domain LLM assistants.',
+      title: '03 / Instant Company Answers:',
+      desc: 'Lets staff search SOPs, contracts, and manuals in plain English and get verified answers linked to the exact source file.',
       svgId: 'arch-layer-3',
     },
     '4': {
-      title: '04 / AI Engineering & Integration:',
-      desc: 'Deploys, monitors, and secures production AI services integrated directly into existing ERP, CRM, and cloud infrastructure.',
+      title: '04 / Connects to Your Existing Software:',
+      desc: 'Plugs directly into your ERP, CRM, billing, and cloud tools with staff permissions and predictable operating costs.',
       svgId: 'arch-layer-4',
     },
   };
