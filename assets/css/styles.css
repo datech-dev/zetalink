@@ -351,13 +351,28 @@ h1, h2, h3, h4, h5 {
 }
 
 .brand-mark {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-sm);
-  background: var(--bg-navy);
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 6px 24px rgba(11, 18, 33, 0.08);
+  border-bottom-color: var(--border-medium);
 }
 
 .brand-wordmark {
@@ -1503,6 +1518,355 @@ h1, h2, h3, h4, h5 {
   }
   .form-card {
     padding: 24px;
+  }
+}
+
+/* ─── DYNAMIC INTERACTIVE COMPONENTS ────────────────────────────────────── */
+
+/* Hero Interactive Architecture Explorer */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.flow-animated {
+  stroke-dasharray: 6 4;
+  animation: flowDash 1.8s linear infinite;
+}
+
+.arch-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.arch-tab-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-xs);
+  padding: 8px 10px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-on-dark-muted);
+  transition: all var(--duration) var(--ease);
+}
+
+.arch-tab-btn:hover {
+  border-color: var(--border-dark-hover);
+  color: var(--text-on-dark);
+}
+
+.arch-tab-btn.active {
+  background: rgba(0, 82, 255, 0.16);
+  border-color: var(--accent-cyan-bright);
+  color: var(--text-on-dark);
+}
+
+.arch-tab-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent-cyan-bright);
+  margin-bottom: 2px;
+}
+
+.arch-tab-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.arch-detail-bar {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: rgba(11, 18, 33, 0.85);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.arch-detail-text {
+  font-size: 0.8125rem;
+  color: var(--text-on-dark-secondary);
+  line-height: 1.45;
+}
+
+.arch-detail-text strong {
+  color: var(--text-on-dark);
+}
+
+/* Interactive Filter Pills */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.filter-pill {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background: var(--bg-white);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+}
+
+.filter-pill:hover {
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+}
+
+.filter-pill.active {
+  background: var(--bg-navy);
+  border-color: var(--bg-navy);
+  color: #FFFFFF;
+}
+
+.blueprint-card.is-hidden {
+  display: none;
+}
+
+/* Interactive Process Stepper */
+.process-step.interactive {
+  cursor: pointer;
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+.process-step.interactive:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+
+.process-step.interactive.active {
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(0, 82, 255, 0.1);
+  background: var(--bg-subtle);
+}
+
+.process-detail-panel {
+  margin-top: 20px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.process-detail-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+/* Interactive ZetaShield 360 Inspector */
+.zs-pillar-btn {
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  transition: all var(--duration) var(--ease);
+}
+
+.zs-pillar-btn:hover {
+  border-color: var(--border-dark-hover);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.zs-pillar-btn.active {
+  border-color: var(--accent-cyan-bright);
+  background: rgba(8, 145, 178, 0.16);
+}
+
+.zs-pillar-btn strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-on-dark);
+  margin-bottom: 4px;
+}
+
+.zs-pillar-btn span {
+  font-size: 0.8125rem;
+  color: var(--text-on-dark-muted);
+  line-height: 1.45;
+  display: block;
+}
+
+.zs-live-readout {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: rgba(11, 18, 33, 0.88);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-sm);
+}
+
+.zs-live-readout-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-cyan-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.zs-live-readout p {
+  font-size: 0.85rem;
+  color: var(--text-on-dark-secondary);
+  line-height: 1.5;
+}
+
+/* Commercial Products Showcase (Zetamart Retail & Boutique) */
+.products-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.product-showcase-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+.product-showcase-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.product-showcase-header {
+  padding: 28px 28px 20px;
+  background: var(--bg-navy);
+  color: var(--text-on-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.product-showcase-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-cyan-bright);
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  margin-bottom: 12px;
+}
+
+.product-showcase-header h3 {
+  color: var(--text-on-dark);
+  font-size: 1.45rem;
+  margin-bottom: 6px;
+}
+
+.product-showcase-header p {
+  color: var(--text-on-dark-secondary);
+  font-size: 0.925rem;
+}
+
+.product-showcase-body {
+  padding: 26px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.product-feature-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  margin: 18px 0 24px;
+}
+
+.product-feature-grid li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.product-feature-grid li svg {
+  width: 15px;
+  height: 15px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.product-pricing-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+
+.product-price-amount {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.product-price-strike {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  margin-right: 6px;
+}
+
+.product-actions-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 960px) {
+  .products-showcase-grid,
+  .process-detail-panel {
+    grid-template-columns: 1fr;
+  }
+  .arch-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .product-feature-grid {
+    grid-template-columns: 1fr;
   }
 }
 
