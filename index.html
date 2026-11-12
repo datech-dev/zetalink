@@ -1,1746 +1,1006 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zetalink Technologies — Enterprise Technology Solutions & Zetamart Products</title>
-    <meta name="description" content="Zetalink Technologies delivers cutting-edge enterprise solutions in Data Science, RPA, IoT and two flagship products: Zetamart Boutique ERP & Zetamart Retail POS.">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* ─── ROOT & TOKENS ─────────────────────────── */
-        :root {
-            --bg-deep: #050816;
-            --bg-surface: #0B1120;
-            --bg-card: rgba(15, 23, 42, 0.7);
-            --bg-card-hover: rgba(25, 35, 60, 0.85);
-
-            --primary: #6366f1;
-            --primary-light: #818cf8;
-            --primary-glow: rgba(99, 102, 241, 0.2);
-
-            --accent-gold: #f59e0b;
-            --accent-gold-glow: rgba(245, 158, 11, 0.15);
-
-            --accent-emerald: #10b981;
-            --accent-emerald-glow: rgba(16, 185, 129, 0.15);
-
-            --accent-rose: #f43f5e;
-            --accent-cyan: #06b6d4;
-
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-
-            --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(255, 255, 255, 0.18);
-
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 24px;
-            --radius-full: 9999px;
-
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.5);
-            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
-
-            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html {
-            scroll-behavior: smooth;
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-deep);
-            color: var(--text-primary);
-        }
-
-        body {
-            overflow-x: hidden;
-            line-height: 1.6;
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
-            background-attachment: fixed;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .section-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 18px;
-            border-radius: var(--radius-full);
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .badge-primary {
-            background: var(--primary-glow);
-            color: var(--primary-light);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-        }
-
-        .badge-gold {
-            background: var(--accent-gold-glow);
-            color: var(--accent-gold);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .badge-emerald {
-            background: var(--accent-emerald-glow);
-            color: var(--accent-emerald);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #818cf8 0%, #6366f1 40%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 32px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: var(--radius-md);
-            border: 1px solid transparent;
-            cursor: pointer;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
-            color: #fff;
-            box-shadow: 0 4px 20px var(--primary-glow);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-            color: #0f172a;
-            box-shadow: 0 4px 20px var(--accent-gold-glow);
-        }
-        .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.4);
-        }
-
-        .btn-outline {
-            background: rgba(255,255,255,0.04);
-            color: var(--text-primary);
-            border-color: var(--border);
-        }
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: var(--primary-light);
-            color: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .glass-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            transition: var(--transition);
-        }
-        .glass-card:hover {
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* ─── NAVBAR ────────────────────────────────── */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(5, 8, 22, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 14px 0;
-            transition: var(--transition);
-        }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .nav-logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), #4f46e5);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-            box-shadow: 0 0 20px var(--primary-glow);
-        }
-
-        .nav-logo-text {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.02em;
-        }
-        .nav-logo-text span { color: var(--primary-light); }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            gap: 28px;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            position: relative;
-        }
-        .nav-links a:hover { color: var(--primary-light); }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .nav-cta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 8px;
-        }
-        .mobile-toggle span {
-            width: 24px;
-            height: 2.5px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: var(--transition);
-        }
-
-        /* ─── HERO ──────────────────────────────────── */
-        .hero {
-            padding: 160px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin: 24px 0;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
-        }
-
-        .hero-stats {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 56px;
-            flex-wrap: wrap;
-        }
-
-        .hero-stat {
-            text-align: center;
-        }
-        .hero-stat-number {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-light), var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-stat-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* ─── ABOUT SECTION ─────────────────────────── */
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 56px;
-        }
-
-        .section-header h2 {
-            font-size: 2.6rem;
-            margin-top: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-top: 16px;
-            line-height: 1.7;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .about-card {
-            text-align: center;
-            padding: 40px 28px;
-        }
-
-        .about-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--primary-glow), rgba(245, 158, 11, 0.1));
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.8rem;
-        }
-
-        .about-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-        .about-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* ─── SERVICES ──────────────────────────────── */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .service-card {
-            padding: 40px 28px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent-gold));
-            opacity: 0;
-            transition: var(--transition);
-        }
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), #4f46e5);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 1.6rem;
-            color: #fff;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-top: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .service-features li {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .service-features li i {
-            color: var(--accent-emerald);
-            font-size: 0.8rem;
-        }
-
-        /* ─── PRODUCTS SECTION ──────────────────────── */
-        .products-section {
-            background: rgba(255, 255, 255, 0.01);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .product-card {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            position: relative;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            transition: var(--transition);
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .product-visual {
-            height: 280px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-visual-boutique {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
-        }
-        .product-visual-retail {
-            background: linear-gradient(135deg, #042f2e 0%, #064e3b 50%, #065f46 100%);
-        }
-
-        .product-visual-icon {
-            font-size: 5rem;
-            opacity: 0.15;
-            position: absolute;
-        }
-
-        .product-visual-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .product-visual-content h3 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-        .product-visual-content p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.95rem;
-        }
-
-        .product-body {
-            padding: 32px;
-        }
-
-        .product-features {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 28px;
-        }
-        .product-features li {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        .product-features li i {
-            color: var(--accent-emerald);
-            margin-top: 3px;
-            font-size: 0.85rem;
-        }
-
-        .product-pricing {
-            display: flex;
-            align-items: baseline;
-            gap: 4px;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-        .product-pricing-label {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        .product-pricing-original {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            text-decoration: line-through;
-            text-decoration-color: #ef4444;
-            text-decoration-thickness: 1.5px;
-            font-weight: 600;
-            margin-left: 4px;
-            margin-right: 2px;
-        }
-        .product-pricing-amount {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-        .product-pricing-period {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        .product-offer-badge {
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 2px 7px;
-            border-radius: 4px;
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent-emerald);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            margin-left: 6px;
-            letter-spacing: 0.5px;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        .product-actions .btn {
-            flex: 1;
-            padding: 12px 20px;
-            font-size: 0.95rem;
-        }
-
-        /* ─── INDUSTRIES ────────────────────────────── */
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .industry-card {
-            padding: 28px;
-            text-align: center;
-        }
-
-        .industry-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--primary-glow), rgba(6, 182, 212, 0.1));
-            border: 1px solid rgba(99, 102, 241, 0.15);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 1.5rem;
-        }
-
-        .industry-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-        }
-        .industry-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-        }
-
-        /* ─── WHY CHOOSE US ─────────────────────────── */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .why-card {
-            padding: 36px 28px;
-            text-align: center;
-            position: relative;
-        }
-
-        .why-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent-gold));
-            border-radius: 2px;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        .why-card:hover::after { opacity: 1; }
-
-        .why-num {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-light), var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
-        }
-
-        .why-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-        }
-        .why-card p {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-        }
-
-        /* ─── TESTIMONIALS ──────────────────────────── */
-        .testimonials-section {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(245, 158, 11, 0.03) 100%);
-            border-top: 1px solid var(--border);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .testimonial-card {
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .testimonial-stars {
-            color: var(--accent-gold);
-            margin-bottom: 16px;
-            display: flex;
-            gap: 4px;
-            font-size: 0.9rem;
-        }
-
-        .testimonial-quote {
-            font-style: italic;
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 24px;
-            flex: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .testimonial-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent-gold));
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .testimonial-author h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-        .testimonial-author p {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        /* ─── CONTACT SECTION ───────────────────────── */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 48px;
-            align-items: start;
-        }
-
-        .contact-info-block {
-            padding: 16px 0;
-        }
-
-        .contact-info-block h3 {
-            font-size: 1.6rem;
-            margin-bottom: 24px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .contact-icon-box {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--primary-glow);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-light);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .contact-item h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .contact-item p {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-        }
-
-        .contact-form-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-        }
-
-        .contact-form-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: var(--transition);
-        }
-        .form-control:focus {
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 0 12px var(--primary-glow);
-        }
-
-        .form-control::placeholder {
-            color: var(--text-muted);
-        }
-
-        select.form-control option {
-            background: var(--bg-deep);
-            color: var(--text-primary);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        /* ─── FOOTER ────────────────────────────────── */
-        .footer {
-            background: #03060f;
-            border-top: 1px solid var(--border);
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 48px;
-        }
-
-        .footer-section h4 {
-            color: var(--text-primary);
-            font-size: 1.05rem;
-            margin-bottom: 16px;
-        }
-
-        .footer-section p {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-        .footer-links a:hover {
-            color: var(--primary-light);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border);
-            padding-top: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-
-        .footer-social a {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .footer-social a:hover {
-            background: var(--primary-glow);
-            color: var(--primary-light);
-            border-color: rgba(99, 102, 241, 0.3);
-        }
-
-        /* ─── ANIMATIONS ────────────────────────────── */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse-ring {
-            0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.3); }
-            70% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
-        }
-
-        /* ─── MOBILE NAV ────────────────────────────── */
-        .mobile-nav-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(5, 8, 22, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 999;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-        }
-        .mobile-nav-overlay.active { display: flex; }
-        .mobile-nav-overlay a {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        .mobile-nav-overlay a:hover { color: var(--primary-light); }
-        .mobile-nav-close {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            font-size: 2rem;
-            color: var(--text-primary);
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* ─── RESPONSIVE ────────────────────────────── */
-        @media (max-width: 1024px) {
-            .about-grid, .services-grid, .industries-grid, .why-grid, .testimonial-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .products-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 3rem; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links, .nav-cta { display: none; }
-            .mobile-toggle { display: flex; }
-
-            .hero { padding: 130px 0 70px; }
-            .hero h1 { font-size: 2.4rem; }
-            .hero-subtitle { font-size: 1.05rem; }
-            .hero-stats { gap: 28px; }
-
-            .section { padding: 70px 0; }
-            .section-header h2 { font-size: 2rem; }
-
-            .about-grid, .services-grid, .industries-grid, .why-grid, .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-
-            .product-features { grid-template-columns: 1fr; }
-            .product-actions { flex-direction: column; }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2rem; }
-            .hero-stat-number { font-size: 2.2rem; }
-            .contact-form-card { padding: 28px; }
-        }
-
-        /* Success toast */
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .form-success.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        .form-success i {
-            font-size: 3rem;
-            color: var(--accent-emerald);
-            margin-bottom: 16px;
-        }
-        .form-success h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-        .form-success p {
-            color: var(--text-secondary);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zetalink Technologies | Enterprise AI Consulting, Engineering &amp; Transformation</title>
+  <meta name="description" content="Zetalink Technologies is an Enterprise AI Transformation &amp; Engineering Partner helping organizations build Generative AI, RAG knowledge systems, Agentic AI, and ML solutions.">
+  <link rel="canonical" href="https://www.zetalink.cloud/">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zetalink Technologies">
+  <meta property="og:title" content="Zetalink Technologies | Enterprise AI Consulting &amp; Engineering">
+  <meta property="og:description" content="Engineering Intelligence. Transforming Enterprises. Custom Generative AI, RAG, Agentic AI, Machine Learning, and ZetaShield 360 data protection.">
+  <meta property="og:url" content="https://www.zetalink.cloud/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zetalink Technologies | Enterprise AI Consulting &amp; Engineering">
+  <meta name="twitter:description" content="From AI Strategy to Enterprise-Scale Intelligence. Custom AI systems built for real business workflows.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zetalink Technologies Pvt. Ltd.",
+    "alternateName": "Zetalink Technologies",
+    "url": "https://www.zetalink.cloud",
+    "email": "contact@zetalink.cloud",
+    "telephone": "+91-96299-23095",
+    "description": "Enterprise AI Consulting, Engineering & Transformation Company specializing in Generative AI, RAG, Agentic AI, Machine Learning, Intelligent Automation, MLOps, and ZetaShield 360.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Perambur",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "609302",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- ═══════ NAVBAR ═══════ -->
-    <nav class="navbar" id="main-navbar">
-        <div class="container nav-inner">
-            <a href="#" class="nav-logo">
-                <div class="nav-logo-icon"><i class="fa-solid fa-link"></i></div>
-                <div class="nav-logo-text">Zeta<span>link</span></div>
-            </a>
+  <!-- ═══════ HEADER & NAVIGATION ═══════ -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo" aria-label="Zetalink Technologies Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 36 36" fill="none">
+            <path d="M8 10.5H28L12.5 25.5H28" stroke="#FFFFFF" stroke-width="3" stroke-linecap="square"/>
+            <circle cx="28" cy="10.5" r="2.5" fill="#22D3EE"/>
+          </svg>
+        </span>
+        <span class="brand-wordmark">
+          <span class="brand-name">Zetalink</span>
+          <span class="brand-sub">Enterprise AI</span>
+        </span>
+      </a>
 
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+      <nav class="primary-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
 
-            <div class="nav-cta">
-                <a href="#products" class="btn btn-outline" style="padding: 10px 22px; font-size: 0.9rem;">
-                    <i class="fa-solid fa-cube"></i> Our Products
-                </a>
-                <a href="#contact" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">
-                    Get Started
-                </a>
+        <div class="nav-item" data-dropdown>
+          <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true">
+            Solutions
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-panel mega" role="menu">
+            <div class="mega-grid">
+              <a href="solutions/enterprise-ai-transformation.html" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Enterprise AI Transformation</span>
+                <span class="dropdown-item-desc">Readiness assessments, AI roadmaps, PoCs, and governance.</span>
+              </a>
+              <a href="solutions/generative-ai.html" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Generative AI</span>
+                <span class="dropdown-item-desc">Custom LLM applications, enterprise assistants, and orchestration.</span>
+              </a>
+              <a href="solutions/rag-knowledge-intelligence.html" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">RAG &amp; Knowledge Intelligence</span>
+                <span class="dropdown-item-desc">Hybrid search, vector databases, and grounded enterprise retrieval.</span>
+              </a>
+              <a href="solutions/agentic-ai.html" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Agentic AI</span>
+                <span class="dropdown-item-desc">Multi-agent orchestration with human-in-the-loop oversight.</span>
+              </a>
+              <a href="solutions/machine-learning-computer-vision.html" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Machine Learning &amp; Computer Vision</span>
+                <span class="dropdown-item-desc">Predictive analytics, forecasting, anomaly detection, and vision.</span>
+              </a>
+              <a href="solutions/intelligent-automation.html" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Intelligent Automation</span>
+                <span class="dropdown-item-desc">Document intelligence, AI workflows, and RPA integration.</span>
+              </a>
+              <a href="solutions/ai-integration-mlops.html" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">AI Integration &amp; MLOps</span>
+                <span class="dropdown-item-desc">API integration, LLMOps, observability, and scalable deployment.</span>
+              </a>
             </div>
-
-            <button class="mobile-toggle" onclick="toggleMobileNav()">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="dropdown-footer">
+              <span>From AI Strategy to Enterprise-Scale Intelligence</span>
+              <a href="contact/index.html">Discuss your initiative &rarr;</a>
+            </div>
+          </div>
         </div>
-    </nav>
 
-    <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNav">
-        <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
-        <a href="#home" onclick="toggleMobileNav()">Home</a>
-        <a href="#about" onclick="toggleMobileNav()">About</a>
-        <a href="#services" onclick="toggleMobileNav()">Services</a>
-        <a href="#products" onclick="toggleMobileNav()">Products</a>
-        <a href="#industries" onclick="toggleMobileNav()">Industries</a>
-        <a href="#contact" onclick="toggleMobileNav()">Contact</a>
+        <div class="nav-item" data-dropdown>
+          <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true">
+            Industries
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <div class="dropdown-list">
+              <a href="industries/index.html#manufacturing" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Manufacturing</span>
+                <span class="dropdown-item-desc">Predictive maintenance, quality inspection, and plant telemetry.</span>
+              </a>
+              <a href="industries/index.html#automotive" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Automotive</span>
+                <span class="dropdown-item-desc">Supply chain intelligence, diagnostics, and dealer knowledge AI.</span>
+              </a>
+              <a href="industries/index.html#retail-ecommerce" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Retail &amp; E-commerce</span>
+                <span class="dropdown-item-desc">Demand forecasting, catalog intelligence, and customer assistants.</span>
+              </a>
+              <a href="industries/index.html#financial-services" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Financial Services</span>
+                <span class="dropdown-item-desc">Document processing, anomaly detection, and governed retrieval.</span>
+              </a>
+              <a href="industries/index.html#healthcare" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Healthcare</span>
+                <span class="dropdown-item-desc">Clinical knowledge retrieval, operational triage, and data security.</span>
+              </a>
+              <a href="industries/index.html#enterprise-operations" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Enterprise Operations</span>
+                <span class="dropdown-item-desc">Cross-functional knowledge bases and human-supervised automation.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item" data-dropdown>
+          <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true">
+            Capabilities
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <div class="dropdown-list">
+              <a href="capabilities/index.html#ai-consulting" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">AI Consulting</span>
+                <span class="dropdown-item-desc">Opportunity assessment, ROI framing, and adoption strategy.</span>
+              </a>
+              <a href="capabilities/index.html#ai-engineering" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">AI Engineering</span>
+                <span class="dropdown-item-desc">Custom LLMs, RAG pipelines, ML models, and agent systems.</span>
+              </a>
+              <a href="capabilities/index.html#ai-architecture" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">AI Architecture</span>
+                <span class="dropdown-item-desc">Cloud AI infrastructure, data pipelines, and model routing.</span>
+              </a>
+              <a href="capabilities/index.html#ai-integration" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">AI Integration</span>
+                <span class="dropdown-item-desc">Connecting intelligence directly into ERP, CRM, and internal tools.</span>
+              </a>
+              <a href="capabilities/index.html#ai-security-governance" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">AI Security &amp; Governance</span>
+                <span class="dropdown-item-desc">Access control, LLM guardrails, privacy, and resilience.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item" data-dropdown>
+          <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true">
+            Platform
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <div class="dropdown-list">
+              <a href="platform/zetashield-360.html" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">ZetaShield 360</span>
+                <span class="dropdown-item-desc">Integrated enterprise data protection, access control, and recovery framework.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item" data-dropdown>
+          <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true">
+            About Us
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <div class="dropdown-list">
+              <a href="about/index.html#overview" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Company Overview</span>
+                <span class="dropdown-item-desc">Who we are and our mission as an enterprise AI engineering partner.</span>
+              </a>
+              <a href="about/index.html#approach" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Our Approach</span>
+                <span class="dropdown-item-desc">How we take AI initiatives from discovery to production reliability.</span>
+              </a>
+              <a href="about/index.html#why-zetalink" class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-title">Why Zetalink</span>
+                <span class="dropdown-item-desc">Business-first engineering, system integration, and dedicated support.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact/index.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contact/index.html" class="btn btn-primary btn-sm">Discuss Your AI Initiative</a>
+      </div>
+
+      <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-direct">Home</a>
+
+    <div class="mobile-nav-group">
+      <button type="button" class="mobile-nav-group-title" aria-expanded="false">
+        Solutions
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="mobile-nav-sub">
+        <a href="solutions/enterprise-ai-transformation.html">Enterprise AI Transformation</a>
+        <a href="solutions/generative-ai.html">Generative AI</a>
+        <a href="solutions/rag-knowledge-intelligence.html">RAG &amp; Knowledge Intelligence</a>
+        <a href="solutions/agentic-ai.html">Agentic AI</a>
+        <a href="solutions/machine-learning-computer-vision.html">Machine Learning &amp; Computer Vision</a>
+        <a href="solutions/intelligent-automation.html">Intelligent Automation</a>
+        <a href="solutions/ai-integration-mlops.html">AI Integration &amp; MLOps</a>
+      </div>
     </div>
 
-    <!-- ═══════ HERO ═══════ -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="section-badge badge-primary">
-                    <i class="fa-solid fa-bolt"></i> Powering Digital Transformation
-                </div>
+    <div class="mobile-nav-group">
+      <button type="button" class="mobile-nav-group-title" aria-expanded="false">
+        Industries
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="mobile-nav-sub">
+        <a href="industries/index.html#manufacturing">Manufacturing</a>
+        <a href="industries/index.html#automotive">Automotive</a>
+        <a href="industries/index.html#retail-ecommerce">Retail &amp; E-commerce</a>
+        <a href="industries/index.html#financial-services">Financial Services</a>
+        <a href="industries/index.html#healthcare">Healthcare</a>
+        <a href="industries/index.html#enterprise-operations">Enterprise Operations</a>
+      </div>
+    </div>
 
-                <h1>Transforming Business Through <span class="gradient-text">Technology Excellence</span></h1>
+    <div class="mobile-nav-group">
+      <button type="button" class="mobile-nav-group-title" aria-expanded="false">
+        Capabilities
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="mobile-nav-sub">
+        <a href="capabilities/index.html#ai-consulting">AI Consulting</a>
+        <a href="capabilities/index.html#ai-engineering">AI Engineering</a>
+        <a href="capabilities/index.html#ai-architecture">AI Architecture</a>
+        <a href="capabilities/index.html#ai-integration">AI Integration</a>
+        <a href="capabilities/index.html#ai-security-governance">AI Security &amp; Governance</a>
+      </div>
+    </div>
 
-                <p class="hero-subtitle">
-                    Leading enterprise solutions in Data Science, RPA, and IoT — plus two flagship products:
-                    <strong>Zetamart Boutique ERP</strong> & <strong>Zetamart Retail POS</strong>.
-                    Empowering businesses with cutting-edge technology from Tamil Nadu, India.
-                </p>
+    <a href="platform/zetashield-360.html" class="mobile-nav-direct">Platform: ZetaShield 360</a>
+    <a href="about/index.html" class="mobile-nav-direct">About Us</a>
+    <a href="contact/index.html" class="mobile-nav-direct">Contact</a>
 
-                <div class="hero-actions">
-                    <a href="#products" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 36px;">
-                        <i class="fa-solid fa-rocket"></i> Explore Our Products
-                    </a>
-                    <a href="#contact" class="btn btn-outline" style="font-size: 1.1rem; padding: 16px 32px;">
-                        <i class="fa-solid fa-message"></i> Talk to Us
-                    </a>
-                </div>
+    <div class="mobile-drawer-cta">
+      <a href="contact/index.html" class="btn btn-primary" style="width: 100%;">Discuss Your AI Initiative</a>
+    </div>
+  </div>
 
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">10+</div>
-                        <div class="hero-stat-label">Years of Innovation</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">500+</div>
-                        <div class="hero-stat-label">Businesses Served</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">99.9%</div>
-                        <div class="hero-stat-label">Uptime Guarantee</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">24/7</div>
-                        <div class="hero-stat-label">Expert Support</div>
-                    </div>
-                </div>
-            </div>
+  <!-- ═══════ MAIN CONTENT ═══════ -->
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div>
+          <span class="eyebrow">Enterprise AI Transformation &amp; Engineering Partner</span>
+          <h1>Engineering Intelligence. Transforming Enterprises.</h1>
+          <p class="hero-subtitle">
+            We help enterprises turn AI opportunities into business reality through Generative AI, Agentic AI, enterprise knowledge systems, and intelligent automation.
+          </p>
+          <div class="hero-actions">
+            <a href="contact/index.html" class="btn btn-primary btn-lg">
+              Discuss Your AI Initiative
+              <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#what-we-build" class="btn btn-outline-dark btn-lg">
+              Explore Our Capabilities
+            </a>
+          </div>
         </div>
+
+        <!-- Architectural Intelligence Diagram -->
+        <div class="hero-visual-frame" aria-label="Enterprise AI Systems Architecture Diagram">
+          <div class="visual-frame-header">
+            <span>ZETALINK // ENTERPRISE INTELLIGENCE ARCHITECTURE</span>
+            <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>GOVERNED &amp; PRODUCTION-READY</span>
+          </div>
+          <svg viewBox="0 0 520 370" width="100%" role="img" aria-label="Structured enterprise AI pipeline connecting enterprise data sources, RAG knowledge layer, agentic orchestration with human oversight, and business applications">
+            <defs>
+              <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 8 5 L 0 9 z" fill="#22D3EE"/>
+              </marker>
+              <marker id="arrow-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 8 5 L 0 9 z" fill="#64748B"/>
+              </marker>
+            </defs>
+
+            <!-- Layer 1: Enterprise Data & Systems -->
+            <rect x="16" y="16" width="488" height="72" rx="6" fill="#0B1221" stroke="#1E293B" stroke-width="1.2"/>
+            <text x="30" y="36" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="0.06em">01 / ENTERPRISE DATA &amp; CORE SYSTEMS</text>
+            <rect x="30" y="46" width="106" height="30" rx="4" fill="#162238" stroke="#334155"/>
+            <text x="83" y="65" text-anchor="middle" fill="#E2E8F0" font-family="Inter, sans-serif" font-size="10.5" font-weight="600">ERP &amp; CRM</text>
+            <rect x="148" y="46" width="114" height="30" rx="4" fill="#162238" stroke="#334155"/>
+            <text x="205" y="65" text-anchor="middle" fill="#E2E8F0" font-family="Inter, sans-serif" font-size="10.5" font-weight="600">Documents &amp; SOPs</text>
+            <rect x="274" y="46" width="106" height="30" rx="4" fill="#162238" stroke="#334155"/>
+            <text x="327" y="65" text-anchor="middle" fill="#E2E8F0" font-family="Inter, sans-serif" font-size="10.5" font-weight="600">SQL &amp; Telemetry</text>
+            <rect x="392" y="46" width="98" height="30" rx="4" fill="#162238" stroke="#334155"/>
+            <text x="441" y="65" text-anchor="middle" fill="#E2E8F0" font-family="Inter, sans-serif" font-size="10.5" font-weight="600">Internal APIs</text>
+
+            <!-- Connectors 1 -> 2 -->
+            <line x1="130" y1="88" x2="130" y2="118" stroke="#22D3EE" stroke-width="1.4" marker-end="url(#arrow-cyan)"/>
+            <line x1="260" y1="88" x2="260" y2="118" stroke="#22D3EE" stroke-width="1.4" marker-end="url(#arrow-cyan)"/>
+            <line x1="390" y1="88" x2="390" y2="118" stroke="#64748B" stroke-width="1.4" marker-end="url(#arrow-slate)"/>
+
+            <!-- Layer 2: Knowledge & Intelligence Core -->
+            <rect x="16" y="122" width="318" height="96" rx="6" fill="#0F1B33" stroke="#0052FF" stroke-width="1.4"/>
+            <text x="30" y="142" fill="#22D3EE" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="0.06em">02 / RAG &amp; KNOWLEDGE INTELLIGENCE</text>
+            <rect x="30" y="154" width="90" height="50" rx="4" fill="#162238" stroke="#1E3A8A"/>
+            <text x="75" y="175" text-anchor="middle" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="10" font-weight="600">Embeddings</text>
+            <text x="75" y="191" text-anchor="middle" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="8.5">Chunk &amp; Index</text>
+            <rect x="130" y="154" width="92" height="50" rx="4" fill="#162238" stroke="#1E3A8A"/>
+            <text x="176" y="175" text-anchor="middle" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="10" font-weight="600">Hybrid Search</text>
+            <text x="176" y="191" text-anchor="middle" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="8.5">Vector + BM25</text>
+            <rect x="232" y="154" width="88" height="50" rx="4" fill="#162238" stroke="#1E3A8A"/>
+            <text x="276" y="175" text-anchor="middle" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="10" font-weight="600">Reranking</text>
+            <text x="276" y="191" text-anchor="middle" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="8.5">Grounded Context</text>
+
+            <!-- Side Column: Custom ML & Vision -->
+            <rect x="348" y="122" width="156" height="96" rx="6" fill="#0B1221" stroke="#334155" stroke-width="1.2"/>
+            <text x="362" y="142" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="9.5">CUSTOM ML &amp; VISION</text>
+            <text x="362" y="165" fill="#E2E8F0" font-family="Inter, sans-serif" font-size="10.5" font-weight="600">Forecasting &amp; Anomaly</text>
+            <text x="362" y="184" fill="#E2E8F0" font-family="Inter, sans-serif" font-size="10.5" font-weight="600">Quality Inspection CV</text>
+            <text x="362" y="203" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="8.5">Model Registry + MLOps</text>
+
+            <!-- Connectors 2 -> 3 -->
+            <line x1="175" y1="218" x2="175" y2="246" stroke="#22D3EE" stroke-width="1.4" marker-end="url(#arrow-cyan)"/>
+            <line x1="426" y1="218" x2="426" y2="246" stroke="#64748B" stroke-width="1.4" marker-end="url(#arrow-slate)"/>
+
+            <!-- Layer 3: Agentic & Workflow Orchestration -->
+            <rect x="16" y="250" width="488" height="58" rx="6" fill="#162238" stroke="#0891B2" stroke-width="1.2"/>
+            <text x="30" y="270" fill="#22D3EE" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="0.06em">03 / AGENTIC ORCHESTRATION &amp; TOOL EXECUTION</text>
+            <text x="30" y="291" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="11" font-weight="600">LLM Routing &bull; Tool Calling &bull; Workflow State &bull; Human-in-the-Loop Approval Gate</text>
+
+            <!-- Connectors 3 -> 4 -->
+            <line x1="260" y1="308" x2="260" y2="324" stroke="#22D3EE" stroke-width="1.4" marker-end="url(#arrow-cyan)"/>
+
+            <!-- Layer 4: Governance, Guardrails & ZetaShield 360 -->
+            <rect x="16" y="328" width="488" height="32" rx="4" fill="#0B1221" stroke="#334155"/>
+            <text x="260" y="348" text-anchor="middle" fill="#CBD5E1" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="0.05em">ZETASHIELD 360 &amp; GOVERNANCE: RBAC &bull; GUARDRAILS &bull; BACKUPS &bull; AUDIT OBSERVABILITY</text>
+          </svg>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════ ABOUT ═══════ -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge badge-primary">
-                    <i class="fa-solid fa-building"></i> About Us
-                </div>
-                <h2>About Zetalink Technologies</h2>
-                <p>With deep expertise in enterprise technology, we've established ourselves as the premier technology partner for businesses seeking digital transformation.</p>
-            </div>
-
-            <div class="about-grid">
-                <div class="glass-card about-card fade-up">
-                    <div class="about-icon">🎯</div>
-                    <h3>Our Mission</h3>
-                    <p>To revolutionize business operations through innovative technology solutions that drive efficiency, growth, and competitive advantage in the digital age.</p>
-                </div>
-                <div class="glass-card about-card fade-up">
-                    <div class="about-icon">🏆</div>
-                    <h3>Our Vision</h3>
-                    <p>To be a catalyst for digital transformation by delivering smart, scalable enterprise solutions across industries globally.</p>
-                </div>
-                <div class="glass-card about-card fade-up">
-                    <div class="about-icon">🚀</div>
-                    <h3>Innovation First</h3>
-                    <p>We bring fresh perspectives and cutting-edge approaches to solve complex business challenges with agility and innovation at our core.</p>
-                </div>
-            </div>
+    <!-- 2. CREDIBILITY & COMPANY METRICS -->
+    <section class="metrics-strip" aria-label="Company Credentials">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-value">2+ Years</div>
+            <div class="metric-label">Building Technology Solutions</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">13</div>
+            <div class="metric-label">Clients Served</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">24/7</div>
+            <div class="metric-label">Support Availability</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">99.9%</div>
+            <div class="metric-label">Platform Uptime</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- ═══════ SERVICES ═══════ -->
-    <section id="services" class="section" style="background: rgba(255,255,255,0.01);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge badge-gold">
-                    <i class="fa-solid fa-cogs"></i> Our Services
-                </div>
-                <h2>Technology Services</h2>
-                <p>Comprehensive enterprise solutions designed to accelerate your digital transformation journey with measurable business impact.</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="glass-card service-card fade-up">
-                    <div class="service-icon">📊</div>
-                    <h3>Data Science & Analytics</h3>
-                    <p>Advanced machine learning and predictive analytics that transform raw data into actionable insights.</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> Machine Learning & AI</li>
-                        <li><i class="fa-solid fa-check"></i> Predictive Analytics</li>
-                        <li><i class="fa-solid fa-check"></i> BI Dashboards</li>
-                        <li><i class="fa-solid fa-check"></i> Data Warehouse Architecture</li>
-                    </ul>
-                </div>
-                <div class="glass-card service-card fade-up">
-                    <div class="service-icon">🤖</div>
-                    <h3>Robotic Process Automation</h3>
-                    <p>Intelligent automation that streamlines operations, reduces costs, and eliminates human error.</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> Process Discovery</li>
-                        <li><i class="fa-solid fa-check"></i> Bot Development</li>
-                        <li><i class="fa-solid fa-check"></i> Document Processing</li>
-                        <li><i class="fa-solid fa-check"></i> Workflow Optimization</li>
-                    </ul>
-                </div>
-                <div class="glass-card service-card fade-up">
-                    <div class="service-icon">🌐</div>
-                    <h3>Internet of Things (IoT)</h3>
-                    <p>End-to-end IoT solutions connecting devices and systems to create smart, data-driven environments.</p>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> IoT Platform Dev</li>
-                        <li><i class="fa-solid fa-check"></i> Sensor Integration</li>
-                        <li><i class="fa-solid fa-check"></i> Real-time Monitoring</li>
-                        <li><i class="fa-solid fa-check"></i> Edge Computing</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- 3. THE ENTERPRISE AI CHALLENGE -->
+    <section class="section section-white">
+      <div class="container challenge-layout">
+        <div class="challenge-sticky">
+          <span class="eyebrow">The Enterprise AI Challenge</span>
+          <h2>AI is evolving. Is your enterprise ready?</h2>
+          <p class="lead" style="margin-top: 16px;">
+            Most organizations recognize the strategic urgency of artificial intelligence, yet struggle to move from isolated experiments to reliable production systems integrated with real business operations.
+          </p>
+          <p style="margin-top: 16px; color: var(--text-secondary);">
+            We don't simply build software. We engineer intelligent systems that solve real business problems—bridging legacy infrastructure, enterprise knowledge, and governed AI workflows.
+          </p>
+          <div style="margin-top: 28px;">
+            <a href="solutions/enterprise-ai-transformation.html" class="btn btn-dark">
+              Explore AI Transformation
+              <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
+
+        <div class="challenge-table">
+          <div class="challenge-row reveal">
+            <div class="challenge-index">01</div>
+            <div>
+              <h3>Disconnected Enterprise Knowledge</h3>
+              <p>Critical operational insight remains locked across PDFs, SOPs, ticket histories, and disparate databases. Zetalink engineers grounded RAG architectures that make institutional knowledge searchable and verifiable.</p>
+            </div>
+          </div>
+          <div class="challenge-row reveal">
+            <div class="challenge-index">02</div>
+            <div>
+              <h3>Manual and Repetitive Processes</h3>
+              <p>High-volume document intake, triage, reconciliation, and reporting consume skilled staff hours. We pair document intelligence with human-supervised workflows to automate execution cleanly.</p>
+            </div>
+          </div>
+          <div class="challenge-row reveal">
+            <div class="challenge-index">03</div>
+            <div>
+              <h3>Underutilized Business Data</h3>
+              <p>Organizations collect transactional, operational, and sensor telemetry without turning it into foresight. Our custom ML and forecasting models convert historical data into operational decisions.</p>
+            </div>
+          </div>
+          <div class="challenge-row reveal">
+            <div class="challenge-index">04</div>
+            <div>
+              <h3>Fragmented Systems</h3>
+              <p>AI prototypes fail when they live outside daily tools. We build API-first integrations that embed AI capabilities directly into ERP, CRM, ticketing, and operational software.</p>
+            </div>
+          </div>
+          <div class="challenge-row reveal">
+            <div class="challenge-index">05</div>
+            <div>
+              <h3>Difficulty Scaling AI Beyond Experimentation</h3>
+              <p>Proofs of concept rarely address latency, evaluation, cost routing, or drift. We implement MLOps and LLMOps pipelines designed for measurable production reliability.</p>
+            </div>
+          </div>
+          <div class="challenge-row reveal">
+            <div class="challenge-index">06</div>
+            <div>
+              <h3>Lack of Secure and Governed AI Implementation</h3>
+              <p>Uncontrolled model usage risks data leakage and inconsistent outputs. We engineer role-based access control, LLM guardrails, and structured data protection into every deployment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════ PRODUCTS ═══════ -->
-    <section id="products" class="section products-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge badge-emerald">
-                    <i class="fa-solid fa-cube"></i> Our Products
-                </div>
-                <h2>Flagship Software Products</h2>
-                <p>Two powerful, industry-specific software products built to digitize and scale your business operations effortlessly.</p>
-            </div>
-
-            <div class="products-grid">
-                <!-- Boutique Product -->
-                <div class="product-card fade-up">
-                    <div class="product-visual product-visual-boutique">
-                        <div class="product-visual-icon"><i class="fa-solid fa-scissors"></i></div>
-                        <div class="product-visual-content">
-                            <div class="section-badge badge-gold" style="margin-bottom: 12px;">
-                                <i class="fa-solid fa-crown"></i> Boutique ERP
-                            </div>
-                            <h3>Zetamart - Boutique</h3>
-                            <p>The Complete Fashion Studio OS for Designers & Tailors</p>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                            The #1 boutique management software for Indian fashion studios & tailoring shops.
-                            Replace paper notebooks with digital garment profiles, live kanban boards & AI chat.
-                        </p>
-                        <ul class="product-features">
-                            <li><i class="fa-solid fa-check"></i> Digital Measurement Profiles</li>
-                            <li><i class="fa-solid fa-check"></i> Tailor Kanban Board</li>
-                            <li><i class="fa-solid fa-check"></i> WhatsApp Invoicing</li>
-                            <li><i class="fa-solid fa-check"></i> AI Customer Assistant</li>
-                            <li><i class="fa-solid fa-check"></i> Multi-Staff RBAC</li>
-                            <li><i class="fa-solid fa-check"></i> ₹ INR Financial Tracking</li>
-                        </ul>
-                        <div class="product-pricing">
-                            <span class="product-pricing-label">Starting at</span>
-                            <span class="product-pricing-amount" style="color: var(--accent-gold);">₹399</span>
-                            <span class="product-pricing-period">/month</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="Zetamart- boutique/zetamart - boutique.html" class="btn btn-gold">
-                                <i class="fa-solid fa-arrow-right"></i> Learn More
-                            </a>
-                            <a href="Zetamart- boutique/zetamart - boutique.html#enquiry" class="btn btn-outline">
-                                <i class="fa-solid fa-envelope"></i> Enquire Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Retail POS Product -->
-                <div class="product-card fade-up">
-                    <div class="product-visual product-visual-retail">
-                        <div class="product-visual-icon"><i class="fa-solid fa-cash-register"></i></div>
-                        <div class="product-visual-content">
-                            <div class="section-badge badge-emerald" style="margin-bottom: 12px;">
-                                <i class="fa-solid fa-bolt"></i> Retail POS
-                            </div>
-                            <h3>Zetamart Retail</h3>
-                            <p>Next-Gen Retail OS & Billing System</p>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                            Supercharge your retail business with lightning-fast POS billing, automated batch-tracking (FIFO),
-                            and granular security control. Scale from single stores to enterprise chains.
-                        </p>
-                        <ul class="product-features">
-                            <li><i class="fa-solid fa-check"></i> Lightning POS Billing</li>
-                            <li><i class="fa-solid fa-check"></i> FIFO/FEFO Batch Tracking</li>
-                            <li><i class="fa-solid fa-check"></i> Granular RBAC Security</li>
-                            <li><i class="fa-solid fa-check"></i> BI Reports & Exports</li>
-                            <li><i class="fa-solid fa-check"></i> Inter-Store Transfers</li>
-                            <li><i class="fa-solid fa-check"></i> Shift Reconciliations</li>
-                        </ul>
-                        <div class="product-pricing">
-                            <span class="product-pricing-label">Starting at</span>
-                            <span class="product-pricing-original">₹1,499</span>
-                            <span class="product-pricing-amount" style="color: var(--accent-emerald);">₹699</span>
-                            <span class="product-pricing-period">/month</span>
-                            <span class="product-offer-badge">Offer</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="zetamart - Retail shop/index.html" class="btn btn-primary">
-                                <i class="fa-solid fa-arrow-right"></i> Learn More
-                            </a>
-                            <a href="zetamart - Retail shop/index.html#enquiry" class="btn btn-outline">
-                                <i class="fa-solid fa-envelope"></i> Enquire Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- 4. WHAT WE BUILD (CORE AI CAPABILITIES) -->
+    <section id="what-we-build" class="section section-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">What We Build</span>
+          <h2>From AI Strategy to Enterprise-Scale Intelligence</h2>
+          <p>Seven integrated AI consulting and engineering practices built to take organizations from initial readiness assessment to production operations.</p>
         </div>
+
+        <div class="solutions-list">
+          <!-- Featured Card 1: Enterprise AI Transformation -->
+          <article class="solution-card featured reveal">
+            <div>
+              <div class="solution-meta">01 / Advisory &amp; Implementation</div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Enterprise AI Transformation</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 16px;">
+                Turn AI ambition into measurable business outcomes. We assess technical readiness, identify high-value automation and intelligence opportunities, validate feasibility through focused proofs of concept, and govern enterprise-wide rollout.
+              </p>
+              <a href="solutions/enterprise-ai-transformation.html" class="card-link">
+                Explore Enterprise AI Transformation
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            <div>
+              <ul class="tag-list" style="margin-top: 0;">
+                <li class="tag">Readiness Assessment</li>
+                <li class="tag">AI Strategy &amp; Roadmap</li>
+                <li class="tag">Opportunity Identification</li>
+                <li class="tag">Rapid PoCs</li>
+                <li class="tag">Workflow Integration</li>
+                <li class="tag">Responsible AI Governance</li>
+                <li class="tag">Infrastructure Strategy</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 2. Generative AI -->
+          <article class="solution-card reveal">
+            <div>
+              <div class="solution-meta">02 / Custom Applications</div>
+              <h3>Generative AI Applications</h3>
+              <p style="color: var(--text-secondary); margin-top: 8px;">
+                Custom-built LLM and multimodal applications engineered around enterprise workflows, model orchestration, and domain accuracy requirements.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Enterprise AI Assistants</li>
+                <li class="tag">Custom LLM Apps</li>
+                <li class="tag">Document Intelligence</li>
+                <li class="tag">Multimodal Systems</li>
+              </ul>
+            </div>
+            <a href="solutions/generative-ai.html" class="card-link">
+              Explore Generative AI
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- 3. RAG & Knowledge Intelligence -->
+          <article class="solution-card reveal">
+            <div>
+              <div class="solution-meta">03 / Grounded Retrieval</div>
+              <h3>RAG &amp; Knowledge Intelligence</h3>
+              <p style="color: var(--text-secondary); margin-top: 8px;">
+                Make your enterprise knowledge intelligent, searchable, and actionable with hybrid retrieval, vector databases, reranking, and citation-backed synthesis.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Hybrid Search</li>
+                <li class="tag">Vector Databases</li>
+                <li class="tag">Knowledge Graphs</li>
+                <li class="tag">Hallucination Evaluation</li>
+              </ul>
+            </div>
+            <a href="solutions/rag-knowledge-intelligence.html" class="card-link">
+              Explore RAG &amp; Knowledge Systems
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- 4. Agentic AI Systems -->
+          <article class="solution-card reveal">
+            <div>
+              <div class="solution-meta">04 / Multi-Agent Workflows</div>
+              <h3>Agentic AI Systems</h3>
+              <p style="color: var(--text-secondary); margin-top: 8px;">
+                Move beyond AI conversations. Build intelligent agents that reason across objectives, invoke enterprise tools, and execute workflows with human approval gates.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Tool-Using Agents</li>
+                <li class="tag">Multi-Agent Systems</li>
+                <li class="tag">Human-in-the-Loop</li>
+                <li class="tag">Decision Support</li>
+              </ul>
+            </div>
+            <a href="solutions/agentic-ai.html" class="card-link">
+              Explore Agentic AI
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- 5. Machine Learning & Computer Vision -->
+          <article class="solution-card reveal">
+            <div>
+              <div class="solution-meta">05 / Predictive &amp; Perceptual ML</div>
+              <h3>Machine Learning &amp; Computer Vision</h3>
+              <p style="color: var(--text-secondary); margin-top: 8px;">
+                Custom predictive modeling, deep learning, time-series forecasting, anomaly detection, and visual inspection pipelines tailored to operational data.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Predictive Analytics</li>
+                <li class="tag">Computer Vision</li>
+                <li class="tag">Anomaly Detection</li>
+                <li class="tag">Forecasting</li>
+              </ul>
+            </div>
+            <a href="solutions/machine-learning-computer-vision.html" class="card-link">
+              Explore ML &amp; Computer Vision
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- 6. Intelligent Automation -->
+          <article class="solution-card reveal">
+            <div>
+              <div class="solution-meta">06 / Process Modernization</div>
+              <h3>Intelligent Automation</h3>
+              <p style="color: var(--text-secondary); margin-top: 8px;">
+                Combine LLM reasoning, intelligent document processing, and RPA orchestration to eliminate bottlenecks across finance, operations, and service desks.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Document Extraction</li>
+                <li class="tag">AI + RPA Integration</li>
+                <li class="tag">Exception Routing</li>
+                <li class="tag">Audit Trails</li>
+              </ul>
+            </div>
+            <a href="solutions/intelligent-automation.html" class="card-link">
+              Explore Intelligent Automation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- 7. AI Integration & MLOps -->
+          <article class="solution-card reveal">
+            <div>
+              <div class="solution-meta">07 / Production Infrastructure</div>
+              <h3>AI Integration &amp; MLOps</h3>
+              <p style="color: var(--text-secondary); margin-top: 8px;">
+                Productionize models with API gateways, cloud AI architecture, LLMOps observability, evaluation harnesses, and lifecycle management.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Enterprise APIs</li>
+                <li class="tag">MLOps &amp; LLMOps</li>
+                <li class="tag">Observability</li>
+                <li class="tag">Performance Optimization</li>
+              </ul>
+            </div>
+            <a href="solutions/ai-integration-mlops.html" class="card-link">
+              Explore AI Integration &amp; MLOps
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════ INDUSTRIES ═══════ -->
-    <section id="industries" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge badge-primary">
-                    <i class="fa-solid fa-industry"></i> Industries
-                </div>
-                <h2>Industry Expertise</h2>
-                <p>Delivering specialized technology solutions across diverse industries with deep domain knowledge.</p>
-            </div>
-
-            <div class="industries-grid">
-                <div class="glass-card industry-card fade-up">
-                    <div class="industry-icon">🏦</div>
-                    <h3>Financial Services</h3>
-                    <p>Analytics, fraud detection, and regulatory compliance for banks and fintech.</p>
-                </div>
-                <div class="glass-card industry-card fade-up">
-                    <div class="industry-icon">🏥</div>
-                    <h3>Healthcare</h3>
-                    <p>Medical analytics, patient monitoring, and healthcare IoT solutions.</p>
-                </div>
-                <div class="glass-card industry-card fade-up">
-                    <div class="industry-icon">🏭</div>
-                    <h3>Manufacturing</h3>
-                    <p>Smart factory, predictive maintenance, and Industry 4.0 transformation.</p>
-                </div>
-                <div class="glass-card industry-card fade-up">
-                    <div class="industry-icon">🛒</div>
-                    <h3>Retail & E-commerce</h3>
-                    <p>Customer analytics, inventory optimization, and omnichannel automation.</p>
-                </div>
-                <div class="glass-card industry-card fade-up">
-                    <div class="industry-icon">⚡</div>
-                    <h3>Energy & Utilities</h3>
-                    <p>Smart grid solutions, energy analytics, and utility automation.</p>
-                </div>
-                <div class="glass-card industry-card fade-up">
-                    <div class="industry-icon">🚛</div>
-                    <h3>Logistics</h3>
-                    <p>Route optimization, fleet management, and supply chain visibility.</p>
-                </div>
-            </div>
+    <!-- 5. ENGAGEMENT MODEL (01-05) -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Engagement Methodology</span>
+          <h2>From AI Opportunity to Enterprise Impact</h2>
+          <p>A disciplined five-stage engineering lifecycle designed to reduce technical risk and connect every AI build directly to operational value.</p>
         </div>
+
+        <div class="process-grid">
+          <div class="process-step reveal">
+            <div class="process-num">01</div>
+            <h3>Discover</h3>
+            <p>Understand business challenges, core workflows, existing data systems, security constraints, and high-leverage AI opportunities.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="process-num">02</div>
+            <h3>Strategize</h3>
+            <p>Define the AI roadmap, target technical architecture, model feasibility criteria, governance guardrails, and expected business value.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="process-num">03</div>
+            <h3>Engineer</h3>
+            <p>Develop custom AI applications, RAG pipelines, ML models, or agentic workflows using suitable architectures and evaluation benchmarks.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="process-num">04</div>
+            <h3>Integrate</h3>
+            <p>Connect AI capabilities cleanly with existing enterprise applications, data stores, identity controls, and human approval workflows.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="process-num">05</div>
+            <h3>Scale &amp; Optimize</h3>
+            <p>Deploy with observability, monitor model behavior and cost, manage lifecycle updates, and continuously improve system accuracy.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════ WHY CHOOSE US ═══════ -->
-    <section class="section" style="background: rgba(255,255,255,0.01);">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge badge-gold">
-                    <i class="fa-solid fa-trophy"></i> Why Choose Us
-                </div>
-                <h2>What Makes Us Different</h2>
-                <p>We combine startup agility with enterprise-grade thinking to deliver solutions that truly move the needle.</p>
-            </div>
-
-            <div class="why-grid">
-                <div class="glass-card why-card fade-up">
-                    <div class="why-num">01</div>
-                    <h3>R&D-First Approach</h3>
-                    <p>Deep AI/IoT/RPA knowledge with cutting-edge research capabilities. Fresh perspectives unencumbered by legacy thinking.</p>
-                </div>
-                <div class="glass-card why-card fade-up">
-                    <div class="why-num">02</div>
-                    <h3>Speed & Flexibility</h3>
-                    <p>Speed of a startup with enterprise thinking. We pivot quickly, implement rapidly, and adapt to your evolving needs.</p>
-                </div>
-                <div class="glass-card why-card fade-up">
-                    <div class="why-num">03</div>
-                    <h3>Early-Mover Advantage</h3>
-                    <p>Building the future of intelligent business systems from the ground up with innovative digital transformation blueprints.</p>
-                </div>
-            </div>
+    <!-- 6. ENTERPRISE AI SOLUTIONS (USE CASES) -->
+    <section class="section section-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Solution Blueprints</span>
+          <h2>Enterprise AI Solutions Built for Operational Reality</h2>
+          <p>Representative enterprise use cases demonstrating how Zetalink applies Generative AI, RAG, Agentic workflows, and Machine Learning across core business functions.</p>
         </div>
+
+        <div class="grid-4">
+          <div class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>Enterprise Knowledge Assistants</h3>
+            <p>Citation-grounded assistants enabling teams to query policies, engineering docs, and internal manuals with role-based permissions.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h2"/></svg>
+            </div>
+            <h3>Automated Document Processing</h3>
+            <p>Structured extraction, validation, and classification across invoices, contracts, compliance filings, and scanned forms.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6.5h4a3.5 3.5 0 0 1 3.5 3.5V14M6.5 10v4A3.5 3.5 0 0 0 10 17.5h4"/></svg>
+            </div>
+            <h3>Intelligent Business Automation</h3>
+            <p>End-to-end orchestration combining AI classification with RPA and API triggers to reduce manual handoffs across departments.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 3 5-6"/></svg>
+            </div>
+            <h3>Predictive Maintenance</h3>
+            <p>Time-series anomaly detection and failure forecasting over equipment telemetry to minimize unplanned downtime.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>AI-Based Quality Inspection</h3>
+            <p>Computer vision pipelines for automated defect detection, surface inspection, and consistency verification on production lines.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Intelligent Customer Support</h3>
+            <p>Context-aware triage, draft responses, and self-service assistants grounded in live order, product, and policy data.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <h3>AI-Powered Decision Support</h3>
+            <p>Executive and operational synthesis combining demand forecasts, inventory signals, and natural-language analytics.</p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Enterprise Workflow Agents</h3>
+            <p>Tool-calling agents that gather context across systems, prepare actions, and route decisions through human approval steps.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════ TESTIMONIALS ═══════ -->
-    <section class="section testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge badge-emerald">
-                    <i class="fa-solid fa-star"></i> Testimonials
-                </div>
-                <h2>Client Success Stories</h2>
-                <p>Hear from businesses that have transformed their operations with Zetalink.</p>
+    <!-- 7. ZETASHIELD 360 PROPRIETARY FRAMEWORK -->
+    <section class="section section-dark">
+      <div class="container zetashield-layout">
+        <div>
+          <span class="eyebrow">Proprietary Framework // ZetaShield 360</span>
+          <h2 style="font-size: clamp(1.875rem, 3vw, 2.5rem); margin-bottom: 18px;">
+            Protect Your Business Data. Strengthen Operational Resilience.
+          </h2>
+          <p class="lead">
+            ZetaShield 360 is Zetalink's integrated data protection and recovery framework, combining secure storage, automated backups, controlled access, and structured recovery mechanisms to help safeguard critical business information.
+          </p>
+
+          <div class="pillar-list">
+            <div class="pillar-item">
+              <strong>01. Secure Data Storage</strong>
+              <span>Structured data management and protected storage architecture for critical business records.</span>
             </div>
-
-            <div class="testimonial-grid">
-                <div class="glass-card testimonial-card fade-up">
-                    <div>
-                        <div class="testimonial-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"Zetalink Technologies streamlined our task management with a custom-built solution. Their responsiveness and dedication to customer needs are outstanding."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">MM</div>
-                        <div>
-                            <h4>Moumita</h4>
-                            <p>Mehta & Mehta Law Firm</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card testimonial-card fade-up">
-                    <div>
-                        <div class="testimonial-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"The Data mining implementation by Zetalink helped us collect business data which fueled our customer retention. Highly recommend their analytics services."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">SV</div>
-                        <div>
-                            <h4>Santosh</h4>
-                            <p>CEO, VA Techies</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card testimonial-card fade-up">
-                    <div>
-                        <div class="testimonial-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"Working with Zetalink on our data science initiatives has been exceptional. Their analytics team provided insights that drove cost-cutting for the company."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">RJ</div>
-                        <div>
-                            <h4>Raja</h4>
-                            <p>Chief Data Officer, Technibit Solutions</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="pillar-item">
+              <strong>02. Automated Backup Management</strong>
+              <span>Scheduled, monitored backup workflows eliminating manual snapshot risk.</span>
             </div>
+            <div class="pillar-item">
+              <strong>03. Controlled Access</strong>
+              <span>Role-based access control and clear permission boundaries across users and teams.</span>
+            </div>
+            <div class="pillar-item">
+              <strong>04. Data Recovery &amp; Continuity</strong>
+              <span>Structured restoration processes and recovery preparedness for operational resilience.</span>
+            </div>
+          </div>
+
+          <a href="platform/zetashield-360.html" class="btn btn-white btn-lg">
+            Explore ZetaShield 360
+            <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
         </div>
+
+        <!-- ZetaShield 360 Connected Architecture Diagram -->
+        <div class="hero-visual-frame" aria-label="ZetaShield 360 Architecture Visualization">
+          <div class="visual-frame-header">
+            <span>ZETASHIELD 360 // DATA PROTECTION &amp; RECOVERY</span>
+            <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>5 CORE MODULES</span>
+          </div>
+          <svg viewBox="0 0 500 380" width="100%" role="img" aria-label="ZetaShield 360 central hub connected to five capability modules: Secure Data Storage, Automated Backup Management, Controlled Access, Data Recovery, and Business Continuity">
+            <!-- Connection Lines from Center (250, 190) to 5 Nodes -->
+            <line x1="250" y1="190" x2="110" y2="70" stroke="#0891B2" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <line x1="250" y1="190" x2="390" y2="70" stroke="#0891B2" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <line x1="250" y1="190" x2="90" y2="230" stroke="#0052FF" stroke-width="1.5"/>
+            <line x1="250" y1="190" x2="410" y2="230" stroke="#0052FF" stroke-width="1.5"/>
+            <line x1="250" y1="190" x2="250" y2="320" stroke="#22D3EE" stroke-width="1.5"/>
+
+            <!-- Outer Perimeter Ring -->
+            <circle cx="250" cy="190" r="140" fill="none" stroke="#1E293B" stroke-width="1"/>
+
+            <!-- Module 1: Secure Data Storage -->
+            <rect x="24" y="28" width="172" height="62" rx="6" fill="#0B1221" stroke="#334155" stroke-width="1.2"/>
+            <text x="38" y="50" fill="#22D3EE" font-family="IBM Plex Mono, monospace" font-size="8.5">MODULE 01</text>
+            <text x="38" y="68" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="11.5" font-weight="600">Secure Data Storage</text>
+            <text x="38" y="81" fill="#94A3B8" font-family="Inter, sans-serif" font-size="9">Structured data protection</text>
+
+            <!-- Module 2: Automated Backup Management -->
+            <rect x="304" y="28" width="172" height="62" rx="6" fill="#0B1221" stroke="#334155" stroke-width="1.2"/>
+            <text x="318" y="50" fill="#22D3EE" font-family="IBM Plex Mono, monospace" font-size="8.5">MODULE 02</text>
+            <text x="318" y="68" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="11.5" font-weight="600">Automated Backups</text>
+            <text x="318" y="81" fill="#94A3B8" font-family="Inter, sans-serif" font-size="9">Scheduled &amp; monitored runs</text>
+
+            <!-- Module 3: Controlled Access -->
+            <rect x="16" y="198" width="152" height="64" rx="6" fill="#0B1221" stroke="#334155" stroke-width="1.2"/>
+            <text x="30" y="220" fill="#22D3EE" font-family="IBM Plex Mono, monospace" font-size="8.5">MODULE 03</text>
+            <text x="30" y="238" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="11.5" font-weight="600">Controlled Access</text>
+            <text x="30" y="252" fill="#94A3B8" font-family="Inter, sans-serif" font-size="9">RBAC &amp; permission rules</text>
+
+            <!-- Module 4: Data Recovery -->
+            <rect x="332" y="198" width="152" height="64" rx="6" fill="#0B1221" stroke="#334155" stroke-width="1.2"/>
+            <text x="346" y="220" fill="#22D3EE" font-family="IBM Plex Mono, monospace" font-size="8.5">MODULE 04</text>
+            <text x="346" y="238" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="11.5" font-weight="600">Data Recovery</text>
+            <text x="346" y="252" fill="#94A3B8" font-family="Inter, sans-serif" font-size="9">Structured restoration</text>
+
+            <!-- Module 5: Business Continuity -->
+            <rect x="150" y="304" width="200" height="58" rx="6" fill="#0B1221" stroke="#334155" stroke-width="1.2"/>
+            <text x="250" y="324" text-anchor="middle" fill="#22D3EE" font-family="IBM Plex Mono, monospace" font-size="8.5">MODULE 05</text>
+            <text x="250" y="341" text-anchor="middle" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="11.5" font-weight="600">Business Continuity</text>
+            <text x="250" y="354" text-anchor="middle" fill="#94A3B8" font-family="Inter, sans-serif" font-size="9">Operational resilience planning</text>
+
+            <!-- Central Identity Core -->
+            <rect x="172" y="146" width="156" height="88" rx="8" fill="#111B2E" stroke="#0052FF" stroke-width="1.8"/>
+            <text x="250" y="176" text-anchor="middle" fill="#22D3EE" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="0.08em">CORE FRAMEWORK</text>
+            <text x="250" y="198" text-anchor="middle" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700">ZetaShield 360</text>
+            <text x="250" y="216" text-anchor="middle" fill="#CBD5E1" font-family="Inter, sans-serif" font-size="9.5">Protect &bull; Govern &bull; Restore</text>
+          </svg>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════ CONTACT ═══════ -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge badge-primary">
-                    <i class="fa-solid fa-envelope"></i> Get In Touch
-                </div>
-                <h2>Start Your Digital Transformation</h2>
-                <p>Ready to revolutionize your business? Let's discuss how we can drive your success.</p>
-            </div>
-
-            <div class="contact-grid">
-                <div class="contact-info-block fade-up">
-                    <h3>Contact Information</h3>
-
-                    <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
-                        <div>
-                            <h4>Headquarters</h4>
-                            <p>Zetalink Technologies Pvt. Ltd.<br>Perambur, Tamil Nadu 609302, India</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91 96299 23095</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>contact@zetalink.cloud<br>dhinesh.raja@zetalink.cloud</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon-box"><i class="fa-solid fa-clock"></i></div>
-                        <div>
-                            <h4>Business Hours</h4>
-                            <p>Monday – Friday: 9:00 AM – 6:00 PM IST</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form-card fade-up" id="contact-form-wrapper">
-                    <h3>Send Us a Message</h3>
-                    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
-                        <input type="hidden" name="access_key" value="dd8cd5cb-15db-463c-9101-8b2bfb972c20">
-                        <input type="hidden" name="subject" value="New Contact Enquiry - Zetalink Website">
-                        <input type="hidden" name="from_name" value="Zetalink Website Contact Form">
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contact-name">Full Name *</label>
-                                <input type="text" name="name" id="contact-name" class="form-control" placeholder="Your full name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-email">Email Address *</label>
-                                <input type="email" name="email" id="contact-email" class="form-control" placeholder="you@company.com" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contact-company">Company Name</label>
-                                <input type="text" name="company" id="contact-company" class="form-control" placeholder="Your company">
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-service">Service Interest</label>
-                                <select name="service" id="contact-service" class="form-control">
-                                    <option value="">Select a service</option>
-                                    <option value="Data Science & Analytics">Data Science & Analytics</option>
-                                    <option value="Robotic Process Automation">Robotic Process Automation</option>
-                                    <option value="Internet of Things">Internet of Things</option>
-                                    <option value="Zetamart Boutique">Zetamart - Boutique (Fashion Studio ERP)</option>
-                                    <option value="Zetamart Retail POS">Zetamart Retail POS</option>
-                                    <option value="Technology Consultation">Technology Consultation</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact-message">Project Details *</label>
-                            <textarea name="message" id="contact-message" class="form-control" rows="5" placeholder="Tell us about your project requirements..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
-                            <i class="fa-solid fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                    <div class="form-success" id="contact-success">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <h3>Message Sent Successfully!</h3>
-                        <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- 8. WHY ZETALINK -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Why Zetalink</span>
+          <h2>Engineering Rigor Designed for Enterprise Trust</h2>
+          <p>Built by a focused AI engineering team committed to practical architecture, transparent execution, and systems that integrate seamlessly into your business.</p>
         </div>
+
+        <div class="grid-4">
+          <div class="card reveal">
+            <h3>Business-First AI Engineering</h3>
+            <p>Every model, agent, or retrieval pipeline starts with operational KPIs and process bottlenecks—never technology for its own sake.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Enterprise-Oriented Architecture</h3>
+            <p>Systems structured around clean API boundaries, deterministic logging, permission models, and predictable latency.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Custom-Built Solutions</h3>
+            <p>Tailored architectures built around your proprietary data, terminology, and business rules rather than rigid off-the-shelf templates.</p>
+          </div>
+          <div class="card reveal">
+            <h3>End-to-End Implementation</h3>
+            <p>Single-partner accountability from readiness assessment and technical scoping through engineering, integration, and production launch.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Existing System Integration</h3>
+            <p>Built to connect with your existing databases, ERP, CRM, document repositories, and cloud environments without disruptive rip-and-replace.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Security-Conscious Development</h3>
+            <p>Role-based access controls, prompt and tool guardrails, data isolation, and ZetaShield 360 protection principles embedded from day one.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Ongoing Technical Support</h3>
+            <p>Dedicated 24/7 support availability, system monitoring, and continuous model evaluation as your workflows and data evolve.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Scalable Engineering Practices</h3>
+            <p>Modular codebases, MLOps/LLMOps observability, and model-agnostic routing so you can adopt improved models without rebuilding.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════ FOOTER ═══════ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <a href="#" class="nav-logo" style="margin-bottom: 16px;">
-                        <div class="nav-logo-icon"><i class="fa-solid fa-link"></i></div>
-                        <div class="nav-logo-text">Zeta<span>link</span></div>
-                    </a>
-                    <p>Transforming businesses through innovative technology solutions. Your trusted partner for digital transformation in Data Science, RPA, IoT and commercial software products.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#services">Data Science & Analytics</a></li>
-                        <li><a href="#services">Robotic Process Automation</a></li>
-                        <li><a href="#services">Internet of Things</a></li>
-                        <li><a href="#services">Technology Consulting</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Products</h4>
-                    <ul class="footer-links">
-                        <li><a href="Zetamart- boutique/zetamart - boutique.html">Zetamart Boutique</a></li>
-                        <li><a href="zetamart - Retail shop/index.html">Zetamart Retail POS</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#industries">Industries</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Zetalink Technologies Pvt. Ltd. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
+    <!-- 9. FINAL CTA -->
+    <section class="section section-subtle">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <span class="eyebrow">Start an Engagement</span>
+            <h2>Let's Build What's Next with AI.</h2>
+            <p>Whether you're exploring your first AI initiative or scaling existing AI capabilities, Zetalink can help you move forward.</p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="contact/index.html" class="btn btn-white btn-lg">
+              Start a Conversation
+              <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="platform/zetashield-360.html" class="btn btn-outline-dark btn-lg">Explore ZetaShield 360</a>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- ═══════ SCRIPTS ═══════ -->
-    <script>
-        // Scroll-based fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  </main>
 
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" style="color: #FFFFFF;">
+            <span class="brand-mark" style="border: 1px solid rgba(255,255,255,0.16);" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 36 36" fill="none">
+                <path d="M8 10.5H28L12.5 25.5H28" stroke="#FFFFFF" stroke-width="3" stroke-linecap="square"/>
+                <circle cx="28" cy="10.5" r="2.5" fill="#22D3EE"/>
+              </svg>
+            </span>
+            <span class="brand-wordmark">
+              <span class="brand-name" style="color: #FFFFFF;">Zetalink</span>
+              <span class="brand-sub" style="color: #94A3B8;">Enterprise AI</span>
+            </span>
+          </a>
+          <p class="footer-brand-desc">
+            Enterprise AI Transformation &amp; Engineering Partner helping organizations design, build, integrate, and govern production AI systems.
+          </p>
+        </div>
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="solutions/enterprise-ai-transformation.html">AI Transformation</a></li>
+            <li><a href="solutions/generative-ai.html">Generative AI</a></li>
+            <li><a href="solutions/rag-knowledge-intelligence.html">RAG &amp; Knowledge Systems</a></li>
+            <li><a href="solutions/agentic-ai.html">Agentic AI</a></li>
+            <li><a href="solutions/machine-learning-computer-vision.html">ML &amp; Computer Vision</a></li>
+            <li><a href="solutions/intelligent-automation.html">Intelligent Automation</a></li>
+            <li><a href="solutions/ai-integration-mlops.html">AI Integration &amp; MLOps</a></li>
+          </ul>
+        </div>
 
-        // Active nav link on scroll
-        const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY + 100;
-            sections.forEach(section => {
-                const top = section.offsetTop;
-                const height = section.offsetHeight;
-                const id = section.getAttribute('id');
-                const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-                if (link) {
-                    if (scrollY >= top && scrollY < top + height) {
-                        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-                        link.classList.add('active');
-                    }
-                }
-            });
-        });
+        <div class="footer-col">
+          <h4>Capabilities</h4>
+          <ul class="footer-links">
+            <li><a href="capabilities/index.html#ai-consulting">AI Consulting</a></li>
+            <li><a href="capabilities/index.html#ai-engineering">AI Engineering</a></li>
+            <li><a href="capabilities/index.html#ai-architecture">AI Architecture</a></li>
+            <li><a href="capabilities/index.html#ai-integration">AI Integration</a></li>
+            <li><a href="capabilities/index.html#ai-security-governance">AI Security &amp; Governance</a></li>
+          </ul>
+        </div>
 
-        // Mobile nav toggle
-        function toggleMobileNav() {
-            document.getElementById('mobileNav').classList.toggle('active');
-        }
+        <div class="footer-col">
+          <h4>Industries &amp; Platform</h4>
+          <ul class="footer-links">
+            <li><a href="platform/zetashield-360.html">ZetaShield 360</a></li>
+            <li><a href="industries/index.html#manufacturing">Manufacturing</a></li>
+            <li><a href="industries/index.html#automotive">Automotive</a></li>
+            <li><a href="industries/index.html#retail-ecommerce">Retail &amp; E-commerce</a></li>
+            <li><a href="industries/index.html#financial-services">Financial Services</a></li>
+            <li><a href="industries/index.html#healthcare">Healthcare</a></li>
+          </ul>
+        </div>
 
-        // Contact form submission
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            const btn = contactForm.querySelector('button[type="submit"]');
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-            btn.disabled = true;
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about/index.html">About Zetalink</a></li>
+            <li><a href="about/index.html#approach">Our Approach</a></li>
+            <li><a href="about/index.html#why-zetalink">Why Zetalink</a></li>
+            <li><a href="contact/index.html">Contact Us</a></li>
+            <li><a href="mailto:contact@zetalink.cloud">contact@zetalink.cloud</a></li>
+          </ul>
+        </div>
+      </div>
 
-            try {
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData
-                });
-                const data = await response.json();
-                if (data.success) {
-                    contactForm.style.display = 'none';
-                    document.getElementById('contact-success').classList.add('show');
-                } else {
-                    alert('Thank you for your message! We will get back to you within 24 hours.');
-                    contactForm.reset();
-                }
-            } catch (error) {
-                alert('Thank you for your message! We will get back to you within 24 hours.');
-                contactForm.reset();
-            }
-            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
-            btn.disabled = false;
-        });
+      <div class="footer-bottom">
+        <p>&copy; 2026 Zetalink Technologies Pvt. Ltd. All rights reserved.</p>
+        <div class="footer-contact-inline">
+          <span>Perambur, Tamil Nadu 609302, India</span>
+          <span>+91 96299 23095</span>
+          <span>contact@zetalink.cloud</span>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('main-navbar');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(5, 8, 22, 0.95)';
-            } else {
-                nav.style.background = 'rgba(5, 8, 22, 0.85)';
-            }
-        });
-    </script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
