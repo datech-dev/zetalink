@@ -6,12 +6,11 @@
   <title>Zetamart Retail POS — Retail OS &amp; Billing System | Zetalink</title>
   <meta name="description" content="Zetamart Retail POS by Zetalink Technologies: keyboard-driven POS billing, FIFO/FEFO batch inventory tracking, inter-store transfers, and role-based store security.">
   <link rel="icon" type="image/png" href="../Logo.png">
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="index.css?v=3.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="index.css?v=3.1">
 </head>
 <body>
 
@@ -27,15 +26,15 @@
           <span class="logo-text">Zeta<span>mart Retail</span></span>
         </div>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Product Navigation">
         <a href="#features">Features</a>
         <a href="#preview">Interface</a>
-        <a href="#calculator">ROI Calculator</a>
+        <a href="#calculator">Estimator</a>
         <a href="#pricing">Pricing</a>
         <a href="#enquiry">Enquiry</a>
       </nav>
       <div class="nav-cta">
-        <a href="#enquiry" class="btn btn-outline">Enquire Now</a>
+        <a href="#enquiry" class="btn btn-primary" style="padding: 9px 18px; font-size: 0.875rem;">Enquire Now</a>
       </div>
     </div>
   </header>
@@ -44,14 +43,14 @@
   <section class="hero-section">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="badge">🚀 Version 2.0 Live</div>
+        <div class="badge">Retail OS &amp; Billing // By Zetalink</div>
         <h1>The Intelligent Retail OS for Modern Stores</h1>
         <p class="hero-subtitle">
-          Supercharge your business with lightning-fast POS billing, automated batch-tracking (FIFO), and granular security control. Designed to scale from single stores to enterprise retail chains.
+          Run fast counter billing, FIFO/FEFO batch inventory tracking, inter-store transfers, and role-based store permissions—built to scale from single stores to multi-branch retail chains.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary" onclick="selectPlanAndScroll('Starter'); return false;">Start Free Trial</a>
-          <a href="#calculator" class="btn btn-secondary">Calculate Savings</a>
+          <a href="#calculator" class="btn btn-secondary">Estimate Savings</a>
         </div>
         <div class="hero-stats">
           <div class="stat-item">
@@ -59,7 +58,7 @@
             <span class="stat-label">Keyboard-Driven Billing</span>
           </div>
           <div class="stat-item">
-            <span class="stat-num">FIFO/FEFO</span>
+            <span class="stat-num">FIFO / FEFO</span>
             <span class="stat-label">Batch Stock Tracking</span>
           </div>
           <div class="stat-item">
@@ -71,7 +70,6 @@
       <div class="hero-media">
         <div class="hero-image-wrapper">
           <img src="pos_hero_mockup.png" alt="Zetamart POS Dashboard Mockup" class="hero-image">
-          <div class="glow-effect"></div>
         </div>
       </div>
     </div>
@@ -81,45 +79,40 @@
   <section id="features" class="features-section">
     <div class="container">
       <div class="section-header">
-        <h2>Engineered for Retail Excellence</h2>
-        <p>A unified retail operating system packing all the advanced modules you need to run, protect, and grow your stores.</p>
+        <div class="badge" style="margin-bottom: 10px;">Core Modules</div>
+        <h2>Engineered for Retail Operations</h2>
+        <p>A unified retail operating system bringing billing, batch inventory, branch transfers, and staff permissions into one workspace.</p>
       </div>
       <div class="features-grid">
-        <!-- Feature 1 -->
         <div class="feature-card">
-          <div class="feature-icon">💳</div>
-          <h3>Lightning POS Billing</h3>
-          <p>Instant checkout with keyboard shortcuts, barcode scanner triggers, automated discounts, and integrated loyalty rewards.</p>
+          <div class="feature-icon" style="color: var(--color-primary);"><i class="fa-solid fa-cash-register"></i></div>
+          <h3>Fast POS Billing</h3>
+          <p>Quick counter checkout with keyboard shortcuts, barcode scanner support, automated discounts, and loyalty point redemption.</p>
         </div>
-        <!-- Feature 2 -->
         <div class="feature-card">
-          <div class="feature-icon">📦</div>
+          <div class="feature-icon" style="color: var(--color-primary);"><i class="fa-solid fa-boxes-stacked"></i></div>
           <h3>Batch Inventory (FIFO/FEFO)</h3>
-          <p>Automatic stock consumption sorting by manufacture and expiry dates. Track shelf-life, batch numbers, and stock levels effortlessly.</p>
+          <p>Automatic stock consumption sorted by manufacture and expiry dates. Track shelf-life, batch numbers, and stock levels cleanly.</p>
         </div>
-        <!-- Feature 3 -->
         <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
+          <div class="feature-icon" style="color: var(--color-primary);"><i class="fa-solid fa-shield-halved"></i></div>
           <h3>Granular RBAC Security</h3>
-          <p>Database-driven role permissions matrices. Instantly show or hide sidebar modules and restrict exports for Cashiers and Staff.</p>
+          <p>Role-based permission matrices to control sidebar modules, stock adjustments, and report exports for cashiers and store managers.</p>
         </div>
-        <!-- Feature 4 -->
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>BI Reports & Exports</h3>
-          <p>Real-time analytics, tax audits, GSTR outputs, and one-click transaction ledger downloads to Excel format.</p>
+          <div class="feature-icon" style="color: var(--color-primary);"><i class="fa-solid fa-chart-column"></i></div>
+          <h3>BI Reports &amp; Exports</h3>
+          <p>Real-time sales summaries, tax audits, GST-ready outputs, and one-click ledger exports to Excel format.</p>
         </div>
-        <!-- Feature 5 -->
         <div class="feature-card">
-          <div class="feature-icon">🔄</div>
+          <div class="feature-icon" style="color: var(--color-primary);"><i class="fa-solid fa-arrows-rotate"></i></div>
           <h3>Inter-Store Transfers</h3>
-          <p>Request, approve, and track inventory movements across different physical store branches with full audit trails.</p>
+          <p>Request, approve, and track stock movements across physical store branches with clear audit trails.</p>
         </div>
-        <!-- Feature 6 -->
         <div class="feature-card">
-          <div class="feature-icon">⏱️</div>
+          <div class="feature-icon" style="color: var(--color-primary);"><i class="fa-solid fa-clock-rotate-left"></i></div>
           <h3>Shift Reconciliations</h3>
-          <p>Secure cashier shift cash drawers. Track opening floats, cash drops, card slip audits, and closure discrepancy notes.</p>
+          <p>Structured cashier shift drawers tracking opening floats, cash drops, card slip totals, and closure discrepancy notes.</p>
         </div>
       </div>
     </div>
@@ -129,50 +122,50 @@
   <section id="preview" class="preview-section">
     <div class="container">
       <div class="section-header">
-        <h2>Take a Look Inside</h2>
-        <p>Explore Zetamart's beautiful dashboard layout built with responsive, premium UI components.</p>
+        <div class="badge" style="margin-bottom: 10px;">System Walkthrough</div>
+        <h2>Inside Zetamart Retail</h2>
+        <p>Built for speed at the billing counter and clear operational control for store owners.</p>
       </div>
-      
-      <!-- Interactive Tab Switcher -->
+
       <div class="tab-container">
         <div class="tab-buttons">
-          <button class="tab-btn active" onclick="switchPreview(event, 'billing-preview')">POS Billing Screen</button>
-          <button class="tab-btn" onclick="switchPreview(event, 'inventory-preview')">Smart Batch Summary</button>
-          <button class="tab-btn" onclick="switchPreview(event, 'security-preview')">Dynamic RBAC Matrix</button>
+          <button type="button" class="tab-btn active" onclick="switchPreview(event, 'billing-preview')">POS Billing Screen</button>
+          <button type="button" class="tab-btn" onclick="switchPreview(event, 'inventory-preview')">Smart Batch Summary</button>
+          <button type="button" class="tab-btn" onclick="switchPreview(event, 'security-preview')">Dynamic RBAC Matrix</button>
         </div>
-        
+
         <div class="tab-content active" id="billing-preview">
           <div class="preview-card">
-            <h4>Ultra-responsive Billing & Cart Engine</h4>
-            <p>Our POS checkout interface lets cashiers execute payments, scan items, search customer credit details, and print receipts without touching a mouse.</p>
+            <h4>Responsive Billing &amp; Cart Engine</h4>
+            <p>Let cashiers scan items, look up customer credit or loyalty details, complete payments, and print receipts without relying on a mouse.</p>
             <ul class="preview-list">
-              <li>⚡ <strong>F1 key shortcut</strong> clears current sale state instantly for the next customer.</li>
-              <li>🎒 <strong>Loyalty Wallet</strong> allows customers to redeem earned points directly on invoice checkout.</li>
-              <li>🎫 <strong>Thermal Print</strong> templates styled in Courier font for 80mm/58mm printers.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>F1 key shortcut</strong> clears the current sale state cleanly for the next customer.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>Loyalty Wallet</strong> lets customers redeem earned points directly at checkout.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>Thermal Print</strong> templates formatted for standard 80mm and 58mm receipt printers.</li>
             </ul>
           </div>
         </div>
 
         <div class="tab-content" id="inventory-preview">
           <div class="preview-card">
-            <h4>FEFO & FIFO Batch tracking</h4>
-            <p>Maintain optimal freshness and mitigate waste of perishable items. Zetamart automatically drains stock from the oldest active batch.</p>
+            <h4>FEFO &amp; FIFO Batch Tracking</h4>
+            <p>Reduce spoilage and maintain freshness across perishable or dated goods by automatically drawing stock from the oldest active batch.</p>
             <ul class="preview-list">
-              <li>📅 <strong>Auto Expiry Warnings</strong> alert managers when batches are nearing their sell-by dates.</li>
-              <li>🔍 <strong>Stock Audits</strong> allow staff to log counted quantity and reconcile stock discrepancies.</li>
-              <li>📈 <strong>Ledger Records</strong> log detailed audit histories for every stock delta.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>Expiry Warnings</strong> alert store managers when batches approach sell-by dates.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>Stock Audits</strong> let staff log physical counts and reconcile discrepancies.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>Ledger Records</strong> maintain detailed histories for every inventory adjustment.</li>
             </ul>
           </div>
         </div>
 
         <div class="tab-content" id="security-preview">
           <div class="preview-card">
-            <h4>Live Role Permissions Synchronization</h4>
-            <p>Zero risk of unauthorized inventory adjustments or revenue views. All layout navigation drawer options sync live with user roles.</p>
+            <h4>Role-Based Permissions Synchronization</h4>
+            <p>Prevent unauthorized inventory edits or margin views. Navigation and export access align directly with assigned staff roles.</p>
             <ul class="preview-list">
-              <li>🚫 <strong>Menu Hiding</strong>: If a cashier's read reports permission is unselected, the "Reports" option vanishes.</li>
-              <li>🔐 <strong>Endpoint Guards</strong>: Block exports, ledger logs, and analytics calls on the backend API layer.</li>
-              <li>🔄 <strong>Real-time update</strong>: Active sessions instantly reload navigation links when an admin updates roles.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>Menu Controls:</strong> Restricted modules such as Reports stay hidden from cashier logins.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>Endpoint Guards:</strong> Exports, ledger logs, and analytics calls are enforced server-side.</li>
+              <li><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i><strong>Live Updates:</strong> Active sessions refresh permissions automatically when an admin updates roles.</li>
             </ul>
           </div>
         </div>
@@ -184,13 +177,14 @@
   <section id="calculator" class="calculator-section">
     <div class="container calc-grid">
       <div class="calc-content">
-        <h2>Calculate Your Savings</h2>
+        <div class="badge" style="margin-bottom: 10px;">Illustrative Estimator</div>
+        <h2>Estimate Your Monthly Store Impact</h2>
         <p class="calc-desc">
-          Zetamart POS eliminates manual entry errors, accelerates checkouts, and automates tracking. Enter your details to see what you could save monthly by making the switch.
+          Enter your store’s monthly sales and weekly audit hours to see an illustrative estimate of time and operational value.
         </p>
         <div class="calc-inputs">
           <div class="input-group">
-            <label for="monthly-sales">Estimated Monthly Revenue (₹)</label>
+            <label for="monthly-sales">Estimated Monthly Revenue (&#8377;)</label>
             <input type="number" id="monthly-sales" value="500000" oninput="calculateSavings()">
           </div>
           <div class="input-group">
@@ -200,11 +194,11 @@
         </div>
       </div>
       <div class="calc-results-card">
-        <h3>Estimated Monthly Savings</h3>
+        <h3>Illustrative Monthly Value</h3>
         <div class="results-grid">
           <div class="result-box">
-            <span class="result-num" id="cash-saved">₹10,000</span>
-            <span class="result-label">Extra Sales via Loyalty</span>
+            <span class="result-num" id="cash-saved">&#8377;10,000</span>
+            <span class="result-label">Illustrative Loyalty Lift</span>
           </div>
           <div class="result-box">
             <span class="result-num" id="time-saved">60 Hours</span>
@@ -213,12 +207,11 @@
         </div>
         <div class="total-saved-box">
           <span class="total-label">Total Illustrative Value / Month</span>
-          <span class="total-num" id="total-val">₹25,000</span>
+          <span class="total-num" id="total-val">&#8377;25,000</span>
         </div>
-        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 12px; line-height: 1.45;">
-          Illustrative estimate only (assumes 2% loyalty sales lift and ₹250/hr staff time valuation). Actual outcomes depend on store operations.
+        <p style="font-size: 0.78rem; color: #94A3B8; margin-top: 12px; line-height: 1.45;">
+          Illustrative estimate only (assumes 2% loyalty sales lift and &#8377;250/hr staff time valuation). Actual outcomes depend on store operations.
         </p>
-        <div class="pulse-indicator">⚡ Powered by Zetamart Automation</div>
       </div>
     </div>
   </section>
@@ -227,21 +220,21 @@
   <section id="pricing" class="pricing-section">
     <div class="container">
       <div class="section-header">
-        <h2>Pricing Built for Every Scale</h2>
-        <p>Simple, transparent pricing. Pay for what you need, upgrade as you grow.</p>
+        <div class="badge" style="margin-bottom: 10px;">Transparent Plans</div>
+        <h2>Pricing Built for Every Store Size</h2>
+        <p>Simple monthly pricing. Start with one outlet and upgrade as your branch network grows.</p>
       </div>
       <div class="pricing-grid">
-        <!-- Plan 1 -->
         <div class="pricing-card">
           <div class="plan-name">Starter</div>
           <div class="price-box">
             <div class="price-original-wrap">
-              <span class="original-price">₹1,499</span>
+              <span class="original-price">&#8377;1,499</span>
               <span class="offer-badge">Offer Price</span>
             </div>
-            <div class="price">₹699<span>/mo</span></div>
+            <div class="price">&#8377;699<span>/mo</span></div>
           </div>
-          <p class="plan-desc">For small independent stores needing robust billing and stock control.</p>
+          <p class="plan-desc">For independent stores needing fast POS billing and batch stock control.</p>
           <ul class="plan-features">
             <li>1 Store Location</li>
             <li>Up to 2 Cashier Accounts</li>
@@ -251,41 +244,41 @@
           </ul>
           <a href="#contact" class="btn btn-outline" onclick="selectPlanAndScroll('Starter'); return false;">Choose Starter</a>
         </div>
-        <!-- Plan 2 (Highlighted) -->
+
         <div class="pricing-card highlighted">
           <div class="popular-tag">MOST POPULAR</div>
           <div class="plan-name">Growth</div>
           <div class="price-box">
             <div class="price-original-wrap">
-              <span class="original-price">₹2,999</span>
+              <span class="original-price">&#8377;2,999</span>
               <span class="offer-badge">Offer Price</span>
             </div>
-            <div class="price">₹1,199<span>/mo</span></div>
+            <div class="price">&#8377;1,199<span>/mo</span></div>
           </div>
-          <p class="plan-desc">Perfect for expanding retail branches requiring batch tracking and audits.</p>
+          <p class="plan-desc">For expanding retail branches requiring batch tracking, audits, and transfers.</p>
           <ul class="plan-features">
             <li>Up to 5 Store Branches</li>
             <li>Unlimited User Accounts</li>
             <li>Batch FIFO/FEFO Tracking</li>
-            <li>Stock Audits & Transfers</li>
-            <li>Excel Exports & Reports</li>
+            <li>Stock Audits &amp; Transfers</li>
+            <li>Excel Exports &amp; Reports</li>
             <li>Priority Support</li>
           </ul>
           <a href="#contact" class="btn btn-primary" onclick="selectPlanAndScroll('Growth'); return false;">Get Growth</a>
         </div>
-        <!-- Plan 3 -->
+
         <div class="pricing-card">
           <div class="plan-name">Enterprise</div>
           <div class="price-box">
             <div class="price-original-wrap"></div>
             <div class="price">Custom</div>
           </div>
-          <p class="plan-desc">For large multi-city retail networks looking for advanced analytics integrations.</p>
+          <p class="plan-desc">For multi-city retail networks needing custom security roles and analytics integrations.</p>
           <ul class="plan-features">
             <li>Unlimited Store Branches</li>
             <li>Custom RBAC Security Roles</li>
             <li>Dedicated Database Instance</li>
-            <li>Real-time BigQuery Analytics</li>
+            <li>Custom Analytics Integrations</li>
             <li>Dedicated Account Manager</li>
             <li>Custom SLA</li>
           </ul>
@@ -300,82 +293,69 @@
     <div id="enquiry"></div>
     <div class="container contact-grid">
       <div class="contact-info">
-        <h2>Interested in Zetamart POS?</h2>
+        <div class="badge" style="margin-bottom: 10px;">Get Started</div>
+        <h2>Interested in Zetamart Retail?</h2>
         <p class="contact-desc">
-          Fill out the enquiry form and our retail experts will get back to you within 24 hours with a personalized demo, pricing, and setup plan for your stores.
+          Fill out the enquiry form and our team will reach out with a tailored walkthrough, hardware compatibility guidance, and onboarding plan for your stores.
         </p>
         <div class="contact-bullets">
-          <div class="bullet-item">✅ 14-day risk-free trial available</div>
-          <div class="bullet-item">✅ Free catalog setup and user onboarding</div>
-          <div class="bullet-item">✅ Support for thermal printers & POS scanners</div>
-          <div class="bullet-item">✅ Plans starting at <span style="text-decoration: line-through; opacity: 0.65; margin-right: 4px;">₹1,499</span>₹699/month (Special Offer)</div>
-          <div class="bullet-item">✅ Dedicated account manager for enterprise</div>
-          <div class="bullet-item">✅ Cancel anytime — zero lock-in</div>
+          <div><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i>14-day risk-free trial available</div>
+          <div><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i>Catalog setup and staff onboarding support</div>
+          <div><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i>Compatible with thermal printers &amp; barcode scanners</div>
+          <div><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i>Plans starting at <span style="text-decoration: line-through; opacity: 0.65; margin-right: 4px;">&#8377;1,499</span>&#8377;699/month</div>
+          <div><i class="fa-solid fa-check" style="color: var(--color-primary); margin-right: 8px;"></i>Cancel anytime — zero lock-in</div>
         </div>
       </div>
+
       <div class="contact-form-wrapper">
         <form class="contact-form" id="retail-enquiry-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="dd8cd5cb-15db-463c-9101-8b2bfb972c20">
           <input type="hidden" name="subject" value="New Retail POS Enquiry - Zetamart Retail">
           <input type="hidden" name="from_name" value="Zetamart Retail POS Enquiry Form">
 
-          <h3>📋 Retail POS Enquiry Form</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="retail-name">Full Name *</label>
-              <input type="text" id="retail-name" name="name" required placeholder="e.g. Rahul Sharma">
-            </div>
+          <h3>Retail POS Enquiry Form</h3>
+          <div class="form-group">
+            <label for="retail-name">Full Name *</label>
+            <input type="text" id="retail-name" name="name" required placeholder="Your full name">
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="retail-email">Email Address *</label>
-              <input type="email" id="retail-email" name="email" required placeholder="e.g. rahul@mystore.com">
-            </div>
+          <div class="form-group">
+            <label for="retail-email">Email Address *</label>
+            <input type="email" id="retail-email" name="email" required placeholder="you@company.com">
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="retail-phone">Phone / WhatsApp Number *</label>
-              <input type="tel" id="retail-phone" name="phone" required placeholder="+91 96299 23095">
-            </div>
+          <div class="form-group">
+            <label for="retail-phone">Phone / WhatsApp Number *</label>
+            <input type="tel" id="retail-phone" name="phone" required placeholder="+91 96299 23095">
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="retail-business">Business / Store Name</label>
-              <input type="text" id="retail-business" name="business_name" placeholder="e.g. Fresh Mart Superstore">
-            </div>
+          <div class="form-group">
+            <label for="retail-business">Business / Store Name</label>
+            <input type="text" id="retail-business" name="business_name" placeholder="Your store name">
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="retail-stores">Number of Outlets</label>
-              <select id="retail-stores" name="store_count">
-                <option value="1">1 Store</option>
-                <option value="2-5">2 to 5 Stores</option>
-                <option value="6+">More than 5 Stores</option>
-              </select>
-            </div>
+          <div class="form-group">
+            <label for="retail-stores">Number of Outlets</label>
+            <select id="retail-stores" name="store_count">
+              <option value="1">1 Store</option>
+              <option value="2-5">2 to 5 Stores</option>
+              <option value="6+">More than 5 Stores</option>
+            </select>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="retail-plan">Interested Plan</label>
-              <select id="retail-plan" name="plan">
-                <option value="Starter (Offer ₹699/mo | Orig ₹1,499)">Starter (Offer ₹699/mo — was ₹1,499)</option>
-                <option value="Growth (Offer ₹1,199/mo | Orig ₹2,999)" selected>Growth (Offer ₹1,199/mo — was ₹2,999) — Popular</option>
-                <option value="Enterprise (Custom)">Enterprise (Custom Pricing)</option>
-                <option value="Not sure">Not sure yet — need guidance</option>
-              </select>
-            </div>
+          <div class="form-group">
+            <label for="retail-plan">Interested Plan</label>
+            <select id="retail-plan" name="plan">
+              <option value="Starter (Offer ₹699/mo | Orig ₹1,499)">Starter (Offer &#8377;699/mo — was &#8377;1,499)</option>
+              <option value="Growth (Offer ₹1,199/mo | Orig ₹2,999)" selected>Growth (Offer &#8377;1,199/mo — was &#8377;2,999) — Popular</option>
+              <option value="Enterprise (Custom)">Enterprise (Custom Pricing)</option>
+              <option value="Not sure">Not sure yet — need guidance</option>
+            </select>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="retail-message">Additional Details</label>
-              <textarea id="retail-message" name="message" rows="3" placeholder="Tell us about your retail business — store type, current challenges, etc." style="background: rgba(255, 255, 255, 0.04); border: 1.5px solid var(--border-color); color: var(--text-primary); padding: 12px 16px; font-size: 0.95rem; border-radius: 8px; outline: none; width: 100%; font-family: var(--font-body); resize: vertical;"></textarea>
-            </div>
+          <div class="form-group">
+            <label for="retail-message">Additional Details</label>
+            <textarea id="retail-message" name="message" rows="3" placeholder="Tell us about your retail business — store type, current challenges, etc."></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Submit Enquiry</button>
         </form>
         <div class="success-toast" id="retail-toast">
-          <h4>✅ Enquiry Submitted Successfully!</h4>
-          <p>Thank you for your interest in Zetamart POS. Our retail integration team will contact you within 24 hours.</p>
+          <h4>Enquiry Submitted Successfully</h4>
+          <p>Thank you for your interest in Zetamart Retail. Our team will reach out shortly.</p>
         </div>
       </div>
     </div>
@@ -384,62 +364,45 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-content">
-      <div style="display: flex; align-items: center; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <img src="../Logo.png" alt="Zetalink logo" width="26" height="26" style="background: #FFF; padding: 3px; border-radius: 5px; object-fit: contain;">
         <div class="logo">
           <span class="logo-text">Zeta<span>mart Retail</span></span>
         </div>
         <span style="color: #94A3B8;">&bull;</span>
         <a href="../index.html" style="color: #CBD5E1; text-decoration: none; font-size: 0.85rem;">A Product by Zetalink Technologies (2+ Years &bull; 13 Clients Served)</a>
       </div>
-      <p class="copyright">&copy; 2026 Zetamart POS System. All rights reserved.</p>
+      <p class="copyright">&copy; 2026 Zetalink Technologies Pvt. Ltd. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script>
-    // Tab switching logic
     function switchPreview(event, tabId) {
-      // Hide all content tabs
-      const tabs = document.querySelectorAll('.tab-content');
-      tabs.forEach(tab => tab.classList.remove('active'));
-
-      // Remove active class from buttons
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-
-      // Show selected tab and active button
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
       event.currentTarget.classList.add('active');
     }
 
-    // ROI Calculator logic
     function calculateSavings() {
       const sales = parseFloat(document.getElementById('monthly-sales').value) || 0;
       const hours = parseFloat(document.getElementById('hours-saved').value) || 0;
-
-      // 1. Extra Sales (e.g. 2% sales lift due to loyalty points and promotions)
       const salesLift = sales * 0.02;
-      
-      // 2. Time Saved (converted to monthly hours)
       const monthlyHoursSaved = hours * 4;
-
-      // 3. Estimated Value added (hours valued at ₹250/hr + sales lift)
       const valueAdded = salesLift + (monthlyHoursSaved * 250);
-
-      // Render values
-      document.getElementById('cash-saved').innerText = '₹' + Math.round(salesLift).toLocaleString('en-IN');
+      document.getElementById('cash-saved').innerText = '\u20B9' + Math.round(salesLift).toLocaleString('en-IN');
       document.getElementById('time-saved').innerText = Math.round(monthlyHoursSaved) + ' Hours';
-      document.getElementById('total-val').innerText = '₹' + Math.round(valueAdded).toLocaleString('en-IN');
+      document.getElementById('total-val').innerText = '\u20B9' + Math.round(valueAdded).toLocaleString('en-IN');
     }
 
-    // Retail Enquiry form submission
     const retailForm = document.getElementById('retail-enquiry-form');
     if (retailForm) {
       retailForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         const formData = new FormData(retailForm);
         const btn = retailForm.querySelector('button[type="submit"]');
-        btn.innerHTML = '⏳ Sending...';
+        btn.textContent = 'Sending...';
         btn.disabled = true;
 
         try {
@@ -457,18 +420,16 @@
         } catch (error) {
           alert('A network error prevented submission. Please check your connection or email contact@zetalink.cloud.');
         }
-        btn.innerHTML = 'Submit Enquiry';
+        btn.textContent = 'Submit Enquiry';
         btn.disabled = false;
       });
     }
 
-    // Plan Selection and Smooth Scroll logic
     function selectPlanAndScroll(planName) {
-      // 1. Auto-select plan in dropdown
       const planSelect = document.getElementById('retail-plan');
       if (planSelect && planName) {
         for (let i = 0; i < planSelect.options.length; i++) {
-          if (planSelect.options[i].text.toLowerCase().includes(planName.toLowerCase()) || 
+          if (planSelect.options[i].text.toLowerCase().includes(planName.toLowerCase()) ||
               planSelect.options[i].value.toLowerCase().includes(planName.toLowerCase())) {
             planSelect.selectedIndex = i;
             break;
@@ -476,34 +437,26 @@
         }
       }
 
-      // 2. Smoothly scroll to the contact/enquiry section
       const target = document.getElementById('contact') || document.getElementById('enquiry');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-        // Highlight form card
         const formWrapper = document.querySelector('.contact-form-wrapper');
         if (formWrapper) {
-          formWrapper.style.transition = 'box-shadow 0.4s ease, border-color 0.4s ease, transform 0.4s ease';
-          formWrapper.style.boxShadow = '0 0 35px rgba(16, 185, 129, 0.45)';
-          formWrapper.style.borderColor = 'rgba(16, 185, 129, 0.6)';
-          formWrapper.style.transform = 'scale(1.01)';
+          formWrapper.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+          formWrapper.style.boxShadow = '0 0 0 3px rgba(39, 117, 229, 0.2)';
+          formWrapper.style.borderColor = '#2775E5';
           setTimeout(() => {
             formWrapper.style.boxShadow = '';
             formWrapper.style.borderColor = '';
-            formWrapper.style.transform = '';
-          }, 1500);
+          }, 1400);
         }
-
-        // Focus Full Name field
         setTimeout(() => {
           const nameInput = document.getElementById('retail-name');
           if (nameInput) nameInput.focus();
-        }, 500);
+        }, 450);
       }
     }
 
-    // Auto-scroll if page is loaded with #contact or #enquiry
     window.addEventListener('DOMContentLoaded', () => {
       if (window.location.hash === '#contact' || window.location.hash === '#enquiry') {
         const target = document.getElementById('contact') || document.getElementById('enquiry');
@@ -515,7 +468,6 @@
       }
     });
 
-    // Initialize calculator
     calculateSavings();
   </script>
 
