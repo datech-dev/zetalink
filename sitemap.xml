@@ -6,42 +6,22 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.zetalink.cloud/solutions/enterprise-ai-transformation.html</loc>
+    <loc>https://www.zetalink.cloud/services/enterprise-ai-automation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zetalink.cloud/solutions/generative-ai.html</loc>
+    <loc>https://www.zetalink.cloud/services/data-intelligence.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zetalink.cloud/solutions/rag-knowledge-intelligence.html</loc>
+    <loc>https://www.zetalink.cloud/services/enterprise-knowledge-ai.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zetalink.cloud/solutions/agentic-ai.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.zetalink.cloud/solutions/machine-learning-computer-vision.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.zetalink.cloud/solutions/intelligent-automation.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.zetalink.cloud/solutions/ai-integration-mlops.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.zetalink.cloud/platform/zetashield-360.html</loc>
+    <loc>https://www.zetalink.cloud/services/ai-engineering.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -51,7 +31,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.zetalink.cloud/capabilities/index.html</loc>
+    <loc>https://www.zetalink.cloud/platform/zetashield-360.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -65,5 +45,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.zetalink.cloud/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.zetalink.cloud/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>
-

@@ -286,23 +286,23 @@
   const archReadout = document.getElementById('arch-detail-readout');
   const archLayerData = {
     '1': {
-      title: '01 / Enterprise Data & Core Systems:',
-      desc: 'Connects ERP, CRM, SQL warehouses, SOPs, and live APIs through structured ingestion without disrupting core operations.',
+      title: '01 / Enterprise AI & Automation:',
+      desc: 'Automates multi-step operational workflows with tool-using agents, document processing, and human approval gates.',
       svgId: 'arch-layer-1',
     },
     '2': {
-      title: '02 / RAG & Knowledge Intelligence:',
-      desc: 'Combines layout-aware chunking, hybrid vector + BM25 search, and cross-encoder reranking for citation-backed accuracy.',
+      title: '02 / Data Intelligence & Analytics:',
+      desc: 'Converts operational telemetry, sales history, and visual feeds into demand forecasts, anomaly alerts, and inspection models.',
       svgId: 'arch-layer-2',
     },
     '3': {
-      title: '03 / Agentic Orchestration:',
-      desc: 'Bounded tool-calling agents plan multi-step execution and route consequential actions through human-in-the-loop approval.',
+      title: '03 / Enterprise Knowledge & GenAI:',
+      desc: 'Transforms fragmented documents and databases into citation-grounded RAG search and domain LLM assistants.',
       svgId: 'arch-layer-3',
     },
     '4': {
-      title: '04 / ZetaShield 360 & Governance:',
-      desc: 'Enforces RBAC permissions, LLM guardrails, automated backups, and step-level observability across every AI workflow.',
+      title: '04 / AI Engineering & Integration:',
+      desc: 'Deploys, monitors, and secures production AI services integrated directly into existing ERP, CRM, and cloud infrastructure.',
       svgId: 'arch-layer-4',
     },
   };
@@ -494,5 +494,16 @@
       btn.addEventListener('click', () => selectZsModule(btn.dataset.zsModule));
     });
   }
+
+  /* ─── 11. PRIVACY-CONSCIOUS CONVERSION EVENT HOOKS ─────────────────────── */
+  document.querySelectorAll('[data-track]').forEach((el) => {
+    el.addEventListener('click', () => {
+      window.dispatchEvent(
+        new CustomEvent('zetalink:track', {
+          detail: { event: el.dataset.track, href: el.getAttribute('href') || '' },
+        })
+      );
+    });
+  });
 })();
 

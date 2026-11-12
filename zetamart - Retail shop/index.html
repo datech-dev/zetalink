@@ -54,16 +54,16 @@
         </div>
         <div class="hero-stats">
           <div class="stat-item">
-            <span class="stat-num">10x</span>
-            <span class="stat-label">Faster Checkout</span>
+            <span class="stat-num">POS</span>
+            <span class="stat-label">Keyboard-Driven Billing</span>
           </div>
           <div class="stat-item">
-            <span class="stat-num">99.9%</span>
-            <span class="stat-label">Stock Accuracy</span>
+            <span class="stat-num">FIFO/FEFO</span>
+            <span class="stat-label">Batch Stock Tracking</span>
           </div>
           <div class="stat-item">
-            <span class="stat-num">24%</span>
-            <span class="stat-label">Revenue Growth</span>
+            <span class="stat-num">RBAC</span>
+            <span class="stat-label">Role-Based Store Controls</span>
           </div>
         </div>
       </div>
@@ -211,9 +211,12 @@
           </div>
         </div>
         <div class="total-saved-box">
-          <span class="total-label">Total Estimated Value Added / Month</span>
+          <span class="total-label">Total Illustrative Value / Month</span>
           <span class="total-num" id="total-val">₹25,000</span>
         </div>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 12px; line-height: 1.45;">
+          Illustrative estimate only (assumes 2% loyalty sales lift and ₹250/hr staff time valuation). Actual outcomes depend on store operations.
+        </p>
         <div class="pulse-indicator">⚡ Powered by Zetamart Automation</div>
       </div>
     </div>
@@ -445,16 +448,14 @@
             body: formData
           });
           const data = await response.json();
-          if (data.success) {
+          if (response.ok && data.success) {
             retailForm.style.display = 'none';
             document.getElementById('retail-toast').classList.add('show');
           } else {
-            alert('Thank you! Your enquiry has been received. Our team will contact you shortly.');
-            retailForm.reset();
+            alert(data.message || 'Unable to submit enquiry right now. Please email contact@zetalink.cloud.');
           }
         } catch (error) {
-          alert('Thank you! Your enquiry has been received. Our team will contact you shortly.');
-          retailForm.reset();
+          alert('A network error prevented submission. Please check your connection or email contact@zetalink.cloud.');
         }
         btn.innerHTML = 'Submit Enquiry';
         btn.disabled = false;
